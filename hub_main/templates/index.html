@@ -1117,20 +1117,88 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container-fluid home-content">
 
         <h2 class="section-title">Hall of Fame</h2>
 
-        {% for post in posts %}
-        <div class="card" style="width: 15rem;">
-            <img src="https://picsum.photos/500" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
-              <p class="card-text"><strong>{{ post.author }}</strong></p>
-              <a href="{% url 'project_details' post.slug %}" class="btn btn-primary">View project</a>
+        <div class="grid">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <img src="https://picsum.photos/800/481" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Test</h5>
+                            <p class="card-text">Testing card with grid</p>
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Test</h5>
+                            <p class="card-text">Testing card with grid</p>
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Test</h5>
+                            <p class="card-text">Testing card with grid</p>
+                            <a href="#" class="btn btn-primary">View project</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        {% endfor %}
+        </div>
     </div>
 </section>
+
+<section>
+    <div class="container-fluid home-content">
+    <h2 class="section-title">Recently Added</h2>
+
+            <div class="grid">
+                <div class="row">
+                    {% for post in posts %}
+                    <div class="col-md-3 col-6">
+                        <div class="card">
+                            <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text"><strong>{{ post.author }}</strong></p>
+                                <a href="{% url 'project_details' post.slug %}" class="btn btn-primary">View project</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+</section>
+
+<!--
+<section>
+    <div class="container-fluid home-content">
+    <h2 class="section-title">Browse by Category</h2>
+
+            <div class="grid">
+                <div class="row">
+                    {% for category in categories %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ category.title }}</h5>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+</section>
+-->
 {% endblock %}
