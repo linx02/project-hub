@@ -10,6 +10,8 @@ class Post(models.Model):
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField()
     likes = models.ManyToManyField(User, related_name='liked_posts')
+    live_link = models.URLField(blank=False)
+    github_repo_link = models.URLField()
 
     class Meta:
         ordering = ['created_on']
@@ -32,3 +34,6 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment {self.body} by {self.user}'
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    github_profile_link = models.URLField(blank=True, null=True)
