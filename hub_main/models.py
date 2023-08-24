@@ -7,6 +7,9 @@ class Category(models.Model):
     name = models.CharField(max_length=200, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
 
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
@@ -14,7 +17,7 @@ class Post(models.Model):
     Category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField()
-    likes = models.ManyToManyField(User, related_name='liked_posts')
+    likes = models.ManyToManyField(User, related_name='liked_posts', null=True, blank=True)
     live_link = models.URLField(blank=False)
     github_repo_link = models.URLField()
 
@@ -22,7 +25,7 @@ class Post(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return self.name
+        return self.title
     
     def number_of_likes(self):
         return self.likes.count()
