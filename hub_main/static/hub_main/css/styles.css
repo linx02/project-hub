@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#hero-outer {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+#hero-cta {
+    text-align: center;
+}
+
+#hero-cta h1 {
+    font-size: 4rem;
+    padding-bottom: 20px;
+}
+
+#hero-cta p {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+#hero-cta a {
+    text-decoration: none;
+}
+
+#hero-svg {
+    height: 60vh;
+    width: 40vw;
+}
+
+.section-title {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+    font-size: 3rem;
+}
