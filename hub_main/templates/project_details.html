@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="project-image">
+        <img src="https://picsum.photos/500/1000" alt="">
+    </div>
+    <div class="project-info">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.description }}</p>
+    </div>
+    <div class="project-profile">
+        {{ post.author }}
+    </div>
+    <div class="profile-posts">
+
+    </div>
+    <div class="likes">
+        <p>{{ post.number_of_likes }}</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="comment-section">
+        {% for comment in comments %}
+            <div class="comment">
+                <span class="comment-author">{{ comment.name }}</span>
+                <span class="comment-date">{{ comment.created_on }}</span>
+                <p class="comment-body">{{ comment.body | linebreaks }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

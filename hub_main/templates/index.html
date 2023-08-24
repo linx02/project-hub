@@ -9,7 +9,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ post.title }}</h5>
               <p class="card-text"><strong>{{ post.author }}</strong></p>
-              <input type="submit" method="GET" action="#" class="btn btn-primary" value="View project">
+              <a href="{% url 'project_details' post.slug %}" class="btn btn-primary">View project</a>
             </div>
           </div>
         {% endfor %}
