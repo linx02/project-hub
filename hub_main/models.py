@@ -3,10 +3,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=200, blank=False)
+    slug = models.SlugField(max_length=200, unique=True)
+
 class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_post')
+    Category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField()
     likes = models.ManyToManyField(User, related_name='liked_posts')
