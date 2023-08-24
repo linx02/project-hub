@@ -2,10 +2,17 @@
 
 {% block content %}
 <section>
-    {% for post in posts %}
-    <div class="post">
-        <p>{{ post }}</p>
+    <div class="container">
+        {% for post in posts %}
+        <div class="card" style="width: 15rem;">
+            <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text"><strong>{{ post.author }}</strong></p>
+              <input type="submit" method="GET" action="#" class="btn btn-primary" value="View project">
+            </div>
+          </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </section>
 {% endblock %}
