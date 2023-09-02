@@ -46,3 +46,72 @@
     padding-left: 50px;
     padding-right: 50px;
 }
+
+.my-card {
+    border-radius: 10px;
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: scroll;
+}
+
+.my-card:hover {
+    cursor: pointer;
+}
+
+.my-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.my-card-body {
+    position: absolute;
+    left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.my-card-title {
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
+    /*margin-bottom: 0.5vw;*/
+}
+
+.my-card-text {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+    margin-left: 0.2vw;
+}
+
+.my-card-author {
+    font-size: 1vw;
+}
+
+@media (max-width: 768px) {
+
+    #hero-cta {
+        margin: auto;
+    }
+
+    #hero-cta h1 {
+        font-size: 3rem;
+    }
+
+    .row .col-12 {
+        margin-bottom: 3vh;
+    }
+
+    .row .col-6 .my-card {
+        height: 130%;
+    }
+
+    .my-card-title {
+        font-size: 3vw;
+    }
+    .my-card-text, .my-card-author {
+        font-size: 2vw;
+    }
+}
