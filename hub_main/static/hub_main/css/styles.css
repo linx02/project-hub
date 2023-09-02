@@ -77,7 +77,6 @@
     font-size: 2vw;
     margin: 0;
     padding: 0;
-    /*margin-bottom: 0.5vw;*/
 }
 
 .my-card-text {
@@ -88,6 +87,74 @@
 
 .my-card-author {
     font-size: 1vw;
+}
+
+footer {
+    margin-top: 20vh;
+    height: 35vh;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+footer a {
+    color: black;
+}
+
+.image-profile {
+    display: flex;
+    justify-content: center;
+}
+
+.project-image {
+    margin-top: 5vh;
+    width: 60vw;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+.profile-section {
+    margin-top: 5vh;
+    margin-left: 2vw;
+    width: 30vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 60vh;
+}
+
+.project-data {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-between;
+    width: 58vw;
+}
+
+.comment-section {
+    margin-top: 10vh;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.comment-section a {
+    margin: 10px;
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.comment-date {
+    padding-left: 5px;
+    font-size: 0.9em;
 }
 
 @media (max-width: 768px) {

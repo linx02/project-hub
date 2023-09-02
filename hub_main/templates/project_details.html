@@ -2,34 +2,44 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="project-image">
-        <img src="https://picsum.photos/500/1000" alt="">
-    </div>
-    <div class="project-info">
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.description }}</p>
-    </div>
-    <div class="project-profile">
-        {{ post.author }}
-    </div>
-    <div class="profile-posts">
+<section>
+    <div class="container">
+        <div class="image-profile">
+            <div class="project-image">
+                <img src="https://picsum.photos/500" alt="">
+            </div>
 
+            <div class="profile-section">
+
+            </div>
+        </div>
+
+        <div class="project-data">
+            <div class="project-info">
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.description }}</p>
+            </div>
+
+            <div class="likes">
+                <span>{{ post.number_of_likes }}</span>
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
     </div>
-    <div class="likes">
-        <p>{{ post.number_of_likes }}</p>
-    </div>
-</div>
+
+</section>
 
 <div class="container">
     <div class="comment-section">
         {% for comment in comments %}
             <div class="comment">
-                <span class="comment-author">{{ comment.name }}</span>
-                <span class="comment-date">{{ comment.created_on }}</span>
+                <i class="fa-solid fa-circle-user fa-xl"></i>
+                <span class="comment-author"><strong>@{{ comment.user }}</strong></span>
+                <span class="comment-date"><em>{{ comment.created_on }}</em></span>
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
             </div>
         {% endfor %}
+        <a href="#" class="btn btn-outline-primary">Leave a comment</a>
     </div>
 </div>
 

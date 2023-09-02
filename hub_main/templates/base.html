@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Project Hub</a>
+              <a class="navbar-brand" href="{% url 'home' %}">Project Hub</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -57,11 +57,13 @@
 
         {% endblock %}
     </main>
-
-    <footer>
-
-    </footer>
 </body>
+
+<footer>
+    <h3>Check out my socials!</h3>
+    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#"><i class="fa-brands fa-square-github"></i></a>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/23c1e8fb66.js" crossorigin="anonymous"></script>

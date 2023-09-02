@@ -1175,17 +1175,19 @@
                 <div class="row">
                     {% for post in posts %}
                     <div class="col-md-3 col-6">
-                        <div class="my-card">
-                            <img src="https://picsum.photos/500" class="my-card-img" alt="...">
-                            <div class="my-card-body">
-                                <h5 class="my-card-title">{{ post.title }}</h5>
-                                <p class="my-card-text">{{ post.description }}</p>
-                                <div class="my-card-author">
-                                    <i class="fa-solid fa-circle-user fa-2xl"></i>
-                                    <span>{{ post.author }}</span>
+                        <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                            <div class="my-card">
+                                <img src="https://picsum.photos/500" class="my-card-img" alt="...">
+                                <div class="my-card-body">
+                                    <h5 class="my-card-title">{{ post.title }}</h5>
+                                    <p class="my-card-text">{{ post.description }}</p>
+                                    <div class="my-card-author">
+                                        <i class="fa-solid fa-circle-user fa-2xl"></i>
+                                        <span>{{ post.author }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -1193,24 +1195,29 @@
         </div>
 </section>
 
-<!--
 <section>
     <div class="container-fluid home-content">
-    <h2 class="section-title">Browse by Category</h2>
+        <h2 class="section-title">Browse by Category</h2>
 
-            <div class="grid">
-                <div class="row">
-                    {% for category in categories %}
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ category.title }}</h5>
-
-                            </div>
-                        </div>
-                    {% endfor %}
+    <div class="accordion" id="accordionCategories">
+        {% for category in categories %}
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.slug }}" aria-expanded="false" aria-controls="collapseOne">
+                <strong>{{ category.name }}</strong>
+                </button>
+            </h2>
+            <div id="{{ category.slug }}" class="accordion-collapse collapse" data-bs-parent="#accordionCategories">
+                <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                <br><a href="#" class="btn btn-outline-primary">Browse projects</a>
                 </div>
             </div>
-        </div>
+            </div>
+        {% endfor %}
+      </div>
+
+      </div>
 </section>
--->
+
 {% endblock %}
