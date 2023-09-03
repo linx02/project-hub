@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Post
+from django.utils.text import slugify
 
 # Create your views here.
 
@@ -29,4 +30,19 @@ def project_details(request, slug):
     return render(request, 'project_details.html', context)
 
 def project_submission(request):
-    return render(request, 'project_submission.html')
+    if request.method == "POST":
+        title = request.POST.get('title', '')
+        slug = slugify(title)
+        
+        posts_table = Post(title=request.POST['title'],
+                           author=request.user,
+                           Category_id=request.POST['category'],
+                           description=request.POST['description'],
+                           live_link=request.POST['live_link'],
+                           github_repo_link=request.POST['github_repo_link'],
+                           slug=slug)
+        posts_table.save()
+
+        return redirect('home')
+    else:
+        return render(request, 'project_submission.html')

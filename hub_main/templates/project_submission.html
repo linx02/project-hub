@@ -2,7 +2,8 @@
 
 {% block content %}
     <div class="container" id="project_submission_container">
-        <form>
+        <form method="POST" action="{% url 'project_submission' %}">
+            {% csrf_token %}
             <fieldset>
             <legend>Submit a project</legend>
             <div class="mb-3">
@@ -12,11 +13,11 @@
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
                 <select name="category" id="category" class="form-select" required>
-                    <option>Project Portfolio 1</option>
-                    <option>Project Portfolio 2</option>
-                    <option>Project Portfolio 3</option>
-                    <option>Project Portfolio 4</option>
-                    <option>Project Portfolio 5</option>
+                    <option value="1">Project Portfolio 1</option>
+                    <option value="2">Project Portfolio 2</option>
+                    <option value="3">Project Portfolio 3</option>
+                    <option value="4">Project Portfolio 4</option>
+                    <option value="5">Project Portfolio 5</option>
                 </select>
             </div>
             <div class="mb-3">
