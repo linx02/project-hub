@@ -5,10 +5,15 @@
 <section>
     <div class="container" id="hero-outer">
         <div id="hero-cta">
-            <h1>Share your projects<br>with the community</h1>
-            <a href="#" class="btn btn-outline-primary btn-lg">Sign Up</a>
-            <em><p>Already have an account?</p></em>
-            <a href="#" class="">Login</a>
+			{% if user.is_authenticated %}
+				<h1>Welcome back, <br>{{ user }}!</h1>
+				<a href="#" class="btn btn-outline-primary btn-lg">Submit a project</a>
+			{% else %}
+				<h1>Share your projects<br>with the community</h1>
+				<a href="#" class="btn btn-outline-primary btn-lg">Sign Up</a>
+				<em><p>Already have an account?</p></em>
+				<a href="{% url 'login' %}" class="">Login</a>
+			{% endif %}
         </div>
         <div class="d-none d-lg-block" id="hero-svg">
             <?xml version="1.0" encoding="utf-8"?>
