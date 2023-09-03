@@ -157,6 +157,22 @@ footer a {
     font-size: 0.9em;
 }
 
+#login-container {
+    margin-top: 10vh;
+    padding-top: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 50%;
+    min-height: 45vh;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#login-container h3 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {

@@ -10,6 +10,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, 'Login successful!')
             return redirect('home')
         else:
             messages.success(request, 'There was an error logging in')
