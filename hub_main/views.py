@@ -27,3 +27,6 @@ def project_details(request, slug):
     }
 
     return render(request, 'project_details.html', context)
+
+def project_submission(request):
+    return render(request, 'project_submission.html')

@@ -173,6 +173,10 @@ footer a {
     padding-bottom: 20px;
 }
 
+#project_submission_container {
+    margin-top: 5vh;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {

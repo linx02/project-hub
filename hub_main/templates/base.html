@@ -39,11 +39,11 @@
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Submit a project</a>
+                      <a class="nav-link" href="{% url 'project_submission' %}">Submit a project</a>
                     </li>
                   {% else %}
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Submit a project</a>
+                      <a class="nav-link disabled" href="{% url 'project_submission' %}">Submit a project</a>
                     </li>
                   {% endif %}
                   {% if user.is_authenticated %}

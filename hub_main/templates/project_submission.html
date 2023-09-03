@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" id="project_submission_container">
+        <form>
+            <fieldset>
+            <legend>Submit a project</legend>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="title" type="text" id="title" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-select" required>
+                    <option>Project Portfolio 1</option>
+                    <option>Project Portfolio 2</option>
+                    <option>Project Portfolio 3</option>
+                    <option>Project Portfolio 4</option>
+                    <option>Project Portfolio 5</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description <em style="color: grey;">(Optional)</em></label>
+                <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="live-link">Live link to project</label>
+                <input name="live_link" type="url" id="live-link" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">GitHub repo link <em style="color: grey;">(Optional)</em></label>
+                <input name="github_repo_link" type="url" id="description" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
