@@ -42,9 +42,17 @@
 }
 
 
-.home-content {
+.padding-content {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.recently-added-card {
+    margin-bottom: 20px;
+}
+
+.profile-post-card {
+    margin-bottom: 80px;
 }
 
 .my-card {
@@ -225,10 +233,6 @@ footer a {
 
     .row .col-12 {
         margin-bottom: 3vh;
-    }
-
-    .row .col-6 .my-card {
-        height: 130%;
     }
 
     .my-card-title {

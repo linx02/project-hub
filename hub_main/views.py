@@ -6,8 +6,9 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
+    four_recent_posts = Post.objects.all()[:4]
     context = {
-        'posts' : Post.objects.all(),
+        'posts' : four_recent_posts,
         'categories' : Category.objects.all()
     }
 

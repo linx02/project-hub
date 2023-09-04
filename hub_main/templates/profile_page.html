@@ -17,11 +17,11 @@
 </section>
 
 <section>
-    <div class="container-fluid" id="profile-page-posts">
+    <div class="container-fluid padding-content" id="profile-page-posts">
         <div class="grid">
             <div class="row">
                 {% for post in posts %}
-                <div class="col-md-3 col-6">
+                <div class="col-md-3 col-6 profile-post-card">
                     <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
                         <div class="my-card">
                             <img src="https://picsum.photos/500" class="my-card-img" alt="...">
