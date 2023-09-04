@@ -40,11 +40,17 @@
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
             </div>
         {% endfor %}
-        <form method="POST" action="{% url 'post_comment' post.id %}">
-            {% csrf_token %}
-            <input type="text" class="form-control" name="comment_body">
-            <input type="submit" class="btn btn-outline-primary">Post comment</a>
-        </form>
+        <div id="post-comment">
+            <form method="POST" action="{% url 'post_comment' post.id %}">
+                {% csrf_token %}
+                <input type="text" class="form-control" name="comment_body" id="comment-input">
+                {% if user.is_authenticated %}
+                    <input type="submit" class="btn btn-outline-primary" value="Post comment" id="comment-btn">
+                {% else %}
+                    <input type="submit" class="btn btn-outline-primary" value="Post comment" id="comment-btn" disabled>
+                {% endif %}
+            </form>
+        </div>
     </div>
 </div>
 

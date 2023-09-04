@@ -221,6 +221,14 @@ footer a {
     padding: 20px;
 }
 
+#post-comment {
+    padding: 20px;
+}
+
+#comment-btn {
+    margin-top: 10px;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {
