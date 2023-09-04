@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Post
 from django.utils.text import slugify
+from django.contrib import messages
 
 # Create your views here.
 
@@ -43,7 +44,8 @@ def project_submission(request):
                            slug=slug)
         posts_table.save()
 
-        return redirect('home')
+        messages.success(request, 'Post successful. Thank you for your submission!')
+        return redirect('profile_page')
     else:
         return render(request, 'project_submission.html')
     
@@ -54,3 +56,12 @@ def profile_page(request):
     }
     
     return render(request, 'profile_page.html', context)
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == "POST":
+        post.delete()
+        messages.success(request, 'Post has been deleted')
+    
+    return redirect('profile_page')

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <section>
@@ -34,8 +36,31 @@
                         </div>
                     </a>
                     <div class="post-options">
-                        <button class="post-option"><i class="fa-solid fa-trash"></i></button>
                         <button class="post-option"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button type="button" class="post-option" data-bs-toggle="modal" data-bs-target="#{{ post.slug }}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="{{ post.slug }}" tabindex="-1" aria-labelledby="deletionModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="{{ post.slug }}">Confirm deletion</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Are you sure you want to delete this post?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form method="post" action="{% url 'delete_post' post.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -44,4 +69,11 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
+    <script src="{% static 'hub_main/js/option_animations.js' %}"></script>
+	
 {% endblock %}

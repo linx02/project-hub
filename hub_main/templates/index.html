@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <section>
@@ -1224,5 +1226,13 @@
 
       </div>
 </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="{% static 'hub_main/js/home_animations.js' %}"></script>
+	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
 
 {% endblock %}
