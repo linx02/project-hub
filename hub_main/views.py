@@ -33,7 +33,7 @@ def project_details(request, slug):
 
 def project_submission(request):
     if request.method == "POST":
-        title = request.POST.get('title', '')
+        title = request.POST.get('title')
         slug = slugify(title)
         
         posts_table = Post(title=request.POST['title'],
@@ -45,11 +45,43 @@ def project_submission(request):
                            slug=slug)
         posts_table.save()
 
-        messages.success(request, 'Post successful. Thank you for your submission!')
+        messages.success(request, 'Your project has been posted. Thank you for your submission!')
         return redirect('profile_page')
     else:
         return render(request, 'project_submission.html')
+
+def project_update(request, post_id):
+    post_to_update = Post.objects.get(id=post_id)
+
+    if request.method == "POST":
+        title = request.POST.get('title')
+        slug = slugify(title)
+
+
+        post_to_update.title=title
+        post_to_update.Category_id=request.POST.get('category')
+        post_to_update.description=request.POST.get('description')
+        post_to_update.live_link=request.POST.get('live_link')
+        post_to_update.github_repo_link=request.POST.get('github_repo_link')
+        post_to_update.slug=slug
+
+        post_to_update.save()
+
+        messages.success(request, 'Post has been updated.')
+        return redirect('profile_page')
     
+    else:
+        context = {
+            'title': post_to_update.title,
+            'category': post_to_update.Category_id,
+            'description': post_to_update.description,
+            'live_link': post_to_update.live_link,
+            'github_repo_link': post_to_update.github_repo_link,
+            'post_id': post_to_update.id
+        }
+
+        return render(request, 'project_update.html', context)
+
 def profile_page(request):
     context = {
         'posts' : Post.objects.filter(author=request.user),

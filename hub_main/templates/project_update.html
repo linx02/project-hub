@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" id="project_submission_container">
+        <form method="POST" action="{% url 'project_update' post_id %}">
+            {% csrf_token %}
+            <fieldset>
+            <legend>Edit post</legend>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="title" type="text" id="title" class="form-control" value="{{ title }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-select" required>
+                    {% if category == 1 %}
+                    <option value="1" selected>Project Portfolio 1</option>
+                    {% else %}
+                    <option value="1">Project Portfolio 1</option>
+                    {% endif %}
+                    {% if category == 2 %}
+                    <option value="2" selected>Project Portfolio 2</option>
+                    {% else %}
+                    <option value="2">Project Portfolio 2</option>
+                    {% endif %}
+                    {% if category == 3 %}
+                    <option value="3" selected>Project Portfolio 3</option>
+                    {% else %}
+                    <option value="3">Project Portfolio 3</option>
+                    {% endif %}
+                    {% if category == 4 %}
+                    <option value="4" selected>Project Portfolio 4</option>
+                    {% else %}
+                    <option value="4">Project Portfolio 4</option>
+                    {% endif %}
+                    {% if category == 5 %}
+                    <option value="5" selected>Project Portfolio 5</option>
+                    {% else %}
+                    <option value="5">Project Portfolio 5</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description <em style="color: grey;">(Optional)</em></label>
+                <textarea name="description" id="description" class="form-control" rows="5">{{ description }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="live-link">Live link to project</label>
+                <input name="live_link" type="url" id="live-link" class="form-control" value="{{ live_link }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">GitHub repo link <em style="color: grey;">(Optional)</em></label>
+                <input name="github_repo_link" type="url" id="description" class="form-control" value="{{ github_repo_link }}">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Update</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
