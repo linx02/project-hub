@@ -177,6 +177,41 @@ footer a {
     margin-top: 5vh;
 }
 
+#profile-container {
+    text-align: center;
+    margin-top: 10vh;
+    padding-bottom: 10vh;
+    border-bottom: 1px solid black;
+}
+
+#profile-container h1{
+    margin-bottom: 5vh;
+}
+
+#profile-container h3{
+    font-size: medium;
+}
+
+#profile-container > div{
+    margin-bottom: 5vh;
+    font-size: xx-large;
+}
+
+#profile-page-posts {
+    margin-top: 10vh;
+}
+
+.post-options {
+    display: flex;
+    justify-content: center;
+}
+
+.post-option {
+    color: inherit;
+    font-size: x-large;
+    padding: 10px;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {

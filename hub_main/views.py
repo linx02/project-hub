@@ -46,3 +46,11 @@ def project_submission(request):
         return redirect('home')
     else:
         return render(request, 'project_submission.html')
+    
+def profile_page(request):
+    context = {
+        'posts' : Post.objects.filter(author=request.user),
+        'post_count' : Post.objects.filter(author=request.user).count(),
+    }
+    
+    return render(request, 'profile_page.html', context)

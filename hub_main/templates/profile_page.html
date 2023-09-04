@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <div class="container" id="profile-container">
+        <h1>Your Profile</h1>
+        <div>
+            <i class="fa-solid fa-circle-user fa-2xl"></i>
+            <span>{{ user }}</span>
+        </div>
+        <h3>Number of posts: {{ post_count }}</h3>
+        <h3>Registered on: {{ user.date_joined|date:"F j, Y" }}</h4>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid" id="profile-page-posts">
+        <div class="grid">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-3 col-6">
+                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                        <div class="my-card">
+                            <img src="https://picsum.photos/500" class="my-card-img" alt="...">
+                            <div class="my-card-body">
+                                <h5 class="my-card-title">{{ post.title }}</h5>
+                                <p class="my-card-text">{{ post.description }}</p>
+                                <div class="my-card-author">
+                                    <i class="fa-solid fa-circle-user fa-2xl"></i>
+                                    <span>{{ post.author }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="post-options">
+                        <a href="" class="post-option"><i class="fa-solid fa-trash"></i></a>
+                        <a href="" class="post-option"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
