@@ -40,7 +40,11 @@
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
             </div>
         {% endfor %}
-        <a href="#" class="btn btn-outline-primary">Leave a comment</a>
+        <form method="POST" action="{% url 'post_comment' post.id %}">
+            {% csrf_token %}
+            <input type="text" class="form-control" name="comment_body">
+            <input type="submit" class="btn btn-outline-primary">Post comment</a>
+        </form>
     </div>
 </div>
 

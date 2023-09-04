@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Post
+from .models import Category, Post, Comment
 from django.utils.text import slugify
 from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 
@@ -34,7 +35,7 @@ def project_details(request, slug):
     return render(request, 'project_details.html', context)
 
 def project_submission(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         title = request.POST.get('title')
         slug = slugify(title)
         
@@ -55,7 +56,7 @@ def project_submission(request):
 def project_update(request, post_id):
     post_to_update = Post.objects.get(id=post_id)
 
-    if request.method == "POST":
+    if request.method == 'POST':
         title = request.POST.get('title')
         slug = slugify(title)
 
@@ -95,8 +96,24 @@ def profile_page(request):
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
-    if request.method == "POST":
+    if request.method == 'POST':
         post.delete()
         messages.success(request, 'Post has been deleted')
     
     return redirect('profile_page')
+
+def post_comment(request, post_id):
+    if request.method == 'POST':
+        post = Post.objects.get(pk=post_id)
+        
+        comment = Comment(
+            body=request.POST['comment_body'],
+            user=request.user,
+            post=post
+        )
+
+        comment.save()
+        messages.success(request, 'Your comment has been posted.')
+
+        redirect_url = reverse('project_details', kwargs={'slug': post.slug})
+        return redirect(redirect_url)

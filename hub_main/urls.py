@@ -7,5 +7,6 @@ urlpatterns = [
     path('project_submission/', views.project_submission, name='project_submission'),
     path('profile_page/', views.profile_page, name='profile_page'),
     path('delete_post/<int:post_id>/', views.delete_post, name='delete_post'),
-    path('project_update/<int:post_id>/', views.project_update, name="project_update")
+    path('project_update/<int:post_id>/', views.project_update, name="project_update"),
+    path('post_comment/<int:post_id>/', views.post_comment, name='post_comment')
 ]
