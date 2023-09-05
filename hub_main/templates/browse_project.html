@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <section>
-    <h1>{{ category.name }}</h1>
+    <div id="header" class="padding-content">
+        <h1 id="browse-heading">{{ category.name }}</h1>
 
-    <div class="btn-group">
-        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Sort by
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'a-z' %}">A-Z</a></li>
-            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'recently-added' %}">Recently added</a></li>
-            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'top-rated' %}">Top Rated</a></li>
-        </ul>
+        <div class="btn-group" id="filter-btn">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'a-z' %}">A-Z</a></li>
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'recently-added' %}">Recently added</a></li>
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'top-rated' %}">Top Rated</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid padding-content">
         <div class="grid">
             <div class="row">
                 {% for post in posts %}
@@ -40,5 +44,11 @@
         </div>
     </div>
 </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
 
 {% endblock %}
