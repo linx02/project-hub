@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <h1>{{ category.name }}</h1>
+
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sort by
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'a-z' %}">A-Z</a></li>
+            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'recently-added' %}">Recently added</a></li>
+            <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'top-rated' %}">Top Rated</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-3 col-6">
+                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                        <div class="my-card">
+                            <img src="https://picsum.photos/500" class="my-card-img" alt="...">
+                            <div class="my-card-body">
+                                <h5 class="my-card-title">{{ post.title }}</h5>
+                                <p class="my-card-text">{{ post.description }}</p>
+                                <div class="my-card-author">
+                                    <i class="fa-solid fa-circle-user fa-2xl"></i>
+                                    <span>{{ post.author }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

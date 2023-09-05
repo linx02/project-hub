@@ -30,11 +30,11 @@
                       Browse
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Project Portfolio 1</a></li>
-                      <li><a class="dropdown-item" href="#">Project Portfolio 2</a></li>
-                      <li><a class="dropdown-item" href="#">Project Portfolio 3</a></li>
-                      <li><a class="dropdown-item" href="#">Project Portfolio 4</a></li>
-                      <li><a class="dropdown-item" href="#">Project Portfolio 5</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 1 'a-z' %}">Project Portfolio 1</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 2 'a-z' %}">Project Portfolio 2</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 3 'a-z' %}">Project Portfolio 3</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 4 'a-z' %}">Project Portfolio 4</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 5 'a-z' %}">Project Portfolio 5</a></li>
                     </ul>
                   </li>
                   {% if user.is_authenticated %}

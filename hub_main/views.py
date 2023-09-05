@@ -117,3 +117,27 @@ def post_comment(request, post_id):
 
         redirect_url = reverse('project_details', kwargs={'slug': post.slug})
         return redirect(redirect_url)
+    
+def browse_project(request, pp, sort_by):
+    
+    if sort_by == 'a-z':
+        posts = Post.objects.all().order_by('title')
+        posts = list(posts)
+        posts.reverse()
+        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp).order_by('title'), 'category' : Category.objects.get(id=pp)})
+    elif sort_by == 'recently-added':
+        posts = Post.objects.filter(Category_id=pp).order_by('created_on')
+        posts = list(posts)
+        posts.reverse()
+        context = {
+            'posts' : posts,
+            'category' : Category.objects.get(id=pp)
+        }
+
+        return render(request, 'browse_project.html', context)
+
+    elif sort_by == 'top-rated':
+        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
+    
+    else:
+        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
