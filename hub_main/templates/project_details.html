@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
+
+<p class="d-none" id="github_repo_link">{{ post.github_repo_link }}</p>
 
 <section>
     <div class="container">
-        <div class="image-profile">
-            <div class="project-image">
-                <img src="https://picsum.photos/500" alt="">
-            </div>
+        <div class="grid">
+            <div class="row">
+                <div class="col-md-8 col-12 project-image">
+                    <img src="https://picsum.photos/500" alt="">
+                </div>
 
-            <div class="profile-section">
+                <div class="col-md-4 col-12 readme-section">
+                    <h5 id="readme-header">Readme.md</h5>
 
+                    <div class="project-readme">
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -53,5 +63,14 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    const githubRepoLink = '{{ post.github_repo_link }}';
+</script>
+<script src="{% static 'hub_main/js/load_github.js' %}"></script>
 
 {% endblock %}

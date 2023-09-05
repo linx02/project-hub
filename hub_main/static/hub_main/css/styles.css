@@ -118,7 +118,6 @@ footer a {
 
 .project-image {
     margin-top: 5vh;
-    width: 60vw;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -129,14 +128,27 @@ footer a {
     object-fit: cover;
 }
 
-.profile-section {
+.readme-section {
     margin-top: 5vh;
-    margin-left: 2vw;
-    width: 30vw;
-    border: 1px solid black;
     border-radius: 10px;
     height: 60vh;
+    background-color: whitesmoke;
 }
+
+#readme-header {
+    padding-left: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+}
+
+.project-readme {
+    width: 100%;
+    height: 85%;
+    padding: 10px 20px;
+    overflow: scroll;
+}
+
 
 .project-data {
     margin-top: 4vh;
