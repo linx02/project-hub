@@ -8,11 +8,20 @@ from django.db.models import Count
 # Create your views here.
 
 def home(request):
+
+    hof_posts = Post.objects.all().annotate(like_count=Count('likes'))
+    hof_posts = hof_posts.order_by('-like_count')
+    hof_posts = list(hof_posts)
+
     recent_posts = Post.objects.all().order_by('created_on')
     recent_posts = list(recent_posts)
     recent_posts.reverse()
+
     context = {
-        'posts' : recent_posts[:4],
+        'hof_post_1' : hof_posts[0],
+        'hof_post_2' : hof_posts[1],
+        'hof_post_3' : hof_posts[2],
+        'recent_posts' : recent_posts[:4],
         'categories' : Category.objects.all()
     }
 
