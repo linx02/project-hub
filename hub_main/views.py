@@ -3,6 +3,7 @@ from .models import Category, Post, Comment
 from django.utils.text import slugify
 from django.contrib import messages
 from django.urls import reverse
+from django.db.models import Count
 
 # Create your views here.
 
@@ -126,7 +127,7 @@ def browse_project(request, pp, sort_by):
         posts.reverse()
         return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp).order_by('title'), 'category' : Category.objects.get(id=pp)})
     elif sort_by == 'recently-added':
-        posts = Post.objects.filter(Category_id=pp).order_by('created_on')
+        posts = Post.objects.filter(Category_id=pp).order_by('-created_on')
         posts = list(posts)
         posts.reverse()
         context = {
@@ -137,7 +138,14 @@ def browse_project(request, pp, sort_by):
         return render(request, 'browse_project.html', context)
 
     elif sort_by == 'top-rated':
-        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
+        posts = Post.objects.filter(Category_id=pp).annotate(like_count=Count('likes'))
+        posts = posts.order_by('-like_count')
+        context = {
+            'posts' : posts,
+            'category' : Category.objects.get(id=pp)
+        }
+
+        return render(request, 'browse_project.html', {'posts': posts, 'category' : Category.objects.get(id=pp)})
     
     else:
         return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
