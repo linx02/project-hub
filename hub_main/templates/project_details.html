@@ -25,16 +25,22 @@
         </div>
 
         <div class="project-data">
-            <div class="project-info">
+            <div class="title-likes-container">
                 <h1>{{ post.title }}</h1>
-                <p>{{ post.description }}</p>
-                <a href="{{ post.live_link }}" target="_blank">View this project</a>
+                <div class="likes">
+                    <p>{{ post.number_of_likes }}</p>
+                    <form action="{% url 'like_post' post.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
+                        <button style="border: none; background-color: inherit;" type="submit"><i id="like" class="fa-solid fa-heart"></i></button>
+                        {% else %}
+                        <button style="border: none; background-color: inherit;" type="submit"><i id="like" class="fa-regular fa-heart"></i></button>
+                        {% endif %}
+                    </form>
+                </div>
             </div>
-
-            <div class="likes">
-                <span>{{ post.number_of_likes }}</span>
-                <i class="fa-regular fa-heart"></i>
-            </div>
+            <p>{{ post.description }}</p>
+            <a href="{{ post.live_link }}" target="_blank" style="width: max-content;">View this project</a>
         </div>
     </div>
 
@@ -71,6 +77,19 @@
 <script>
     const githubRepoLink = '{{ post.github_repo_link }}';
 </script>
+
+<script>
+    if('{{ liked }}' !== 'True'){
+        const like = document.getElementById('like');
+        like.addEventListener('mouseenter', function(){
+            like.classList = 'fa-solid fa-heart';
+        })
+        like.addEventListener('mouseleave', function(){
+            like.classList = 'fa-regular fa-heart';
+        })
+    }
+</script>
+
 <script src="{% static 'hub_main/js/load_github.js' %}"></script>
 
 {% endblock %}

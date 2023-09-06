@@ -167,8 +167,14 @@ footer a {
 .project-data {
     margin-top: 4vh;
     display: flex;
-    justify-content: space-between;
-    width: 58vw;
+    flex-direction: column;
+    position: relative;
+}
+
+.title-likes-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .comment-section {
@@ -261,7 +267,23 @@ footer a {
     justify-content: space-between;
 }
 
-#browse-heading {}
+.likes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+
+.likes p {
+    margin: 0;
+    padding-right: 5px;
+}
+
+.likes i:hover {
+    cursor: pointer;
+}
 
 #filter-btn {
     height: 40px;

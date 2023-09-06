@@ -54,7 +54,7 @@ def project_submission(request):
         return render(request, 'project_submission.html')
 
 def project_update(request, post_id):
-    post_to_update = Post.objects.get(id=post_id)
+    post_to_update = get_object_or_404(Post, id=post_id)
 
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -104,7 +104,7 @@ def delete_post(request, post_id):
 
 def post_comment(request, post_id):
     if request.method == 'POST':
-        post = Post.objects.get(pk=post_id)
+        post = get_object_or_404(Post, id=post_id)
         
         comment = Comment(
             body=request.POST['comment_body'],
@@ -141,3 +141,15 @@ def browse_project(request, pp, sort_by):
     
     else:
         return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
+
+
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    redirect_url = reverse('project_details', kwargs={'slug': post.slug})
+    return redirect(redirect_url)
