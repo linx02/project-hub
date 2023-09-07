@@ -13,7 +13,7 @@
 					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg">Submit a project</a>
 				{% else %}
 					<h1>Share your projects<br>with the community</h1>
-					<a href="#" class="btn btn-outline-primary btn-lg">Sign Up</a>
+					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">Sign Up</a>
 					<em><p>Already have an account?</p></em>
 					<a href="{% url 'login' %}" class="">Login</a>
 				{% endif %}
