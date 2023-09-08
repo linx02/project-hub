@@ -33,7 +33,7 @@
                 <div class="col-md-6 col-12">
 					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="https://picsum.photos/800/500" class="my-card-img" alt="...">
+							<img src="{{ hof_post_1.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_1.title }}</h5>
 								<p class="my-card-text">{{ hof_post_1.description }}</p>
@@ -48,7 +48,7 @@
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_2.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="https://picsum.photos/500" class="my-card-img" alt="...">
+							<img src="{{ hof_post_2.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_2.title }}</h5>
 								<p class="my-card-text">{{ hof_post_2.description }}</p>
@@ -63,7 +63,7 @@
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_3.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="https://picsum.photos/500" class="my-card-img" alt="...">
+							<img src="{{ hof_post_3.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_3.title }}</h5>
 								<p class="my-card-text">{{ hof_post_3.description }}</p>
@@ -90,7 +90,7 @@
                     <div class="col-md-3 col-6 recently-added-card">
                         <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
                             <div class="my-card">
-                                <img src="https://picsum.photos/500" class="my-card-img" alt="...">
+                                <img src="{{ post.image }}" class="my-card-img" alt="...">
                                 <div class="my-card-body">
                                     <h5 class="my-card-title">{{ post.title }}</h5>
                                     <p class="my-card-text">{{ post.description }}</p>

@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container" id="project_submission_container">
-        <form method="POST" action="{% url 'project_submission' %}">
+        <form method="POST" action="{% url 'project_submission' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset>
             <legend>Submit a project</legend>
@@ -25,6 +25,10 @@
             <div class="mb-3">
                 <label class="form-label" for="description">Description <em style="color: grey;">(Optional)</em></label>
                 <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Project Image <em style="color: grey;">(Optional)</em></label>
+                <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg" />
             </div>
             <div class="mb-3">
                 <label class="form-label" for="live-link">Live link to project</label>

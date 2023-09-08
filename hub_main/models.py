@@ -1,17 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class Category(models.Model):
     name = models.CharField(max_length=200, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
 
 class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
+    image = CloudinaryField(blank=True, null=False, default='https://res.cloudinary.com/dyzoccovz/image/upload/v1694180826/cfdiszurokmzpvjxb5r9.png')
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_post')
     Category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')

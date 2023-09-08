@@ -16,6 +16,17 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+          
+cloudinary.config( 
+  cloud_name = "dyzoccovz", 
+  api_key = "751598637894342", 
+  api_secret = os.environ.get('CLOUDINARY_SECRET')
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.contrib import messages
 from django.urls import reverse
 from django.db.models import Count
+import cloudinary.uploader
 
 # Create your views here.
 
@@ -48,11 +49,16 @@ def project_submission(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         slug = slugify(title)
+
+        image_file = request.FILES.get('image')
+        print(image_file)
+        upload_result = cloudinary.uploader.upload(image_file)
         
         posts_table = Post(title=request.POST['title'],
                            author=request.user,
                            Category_id=request.POST['category'],
                            description=request.POST['description'],
+                           image=upload_result['secure_url'],
                            live_link=request.POST['live_link'],
                            github_repo_link=request.POST['github_repo_link'],
                            slug=slug)
@@ -74,6 +80,13 @@ def project_update(request, post_id):
         post_to_update.title=title
         post_to_update.Category_id=request.POST.get('category')
         post_to_update.description=request.POST.get('description')
+
+        
+        image_file = request.FILES.get('image')
+        print(image_file)
+        upload_result = cloudinary.uploader.upload(image_file)
+
+        post_to_update.image=upload_result['secure_url']
         post_to_update.live_link=request.POST.get('live_link')
         post_to_update.github_repo_link=request.POST.get('github_repo_link')
         post_to_update.slug=slug
