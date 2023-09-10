@@ -145,20 +145,24 @@ footer a {
 
 .project-image {
     margin-top: 5vh;
+    background-color: whitesmoke;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .project-image img {
     width: 100%;
     height: 60vh;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
 }
 
 .readme-section {
     margin-top: 5vh;
     border-radius: 10px;
-    height: 60vh;
+    max-height: 60vh;
     background-color: whitesmoke;
+    overflow: scroll;
 }
 
 #readme-header {
@@ -306,6 +310,51 @@ footer a {
     color: gray;
 }
 
+#project-profile-container {
+    background-color: whitesmoke;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 5vh;
+}
+
+#profile-author-container a{
+    font-size: large;
+}
+
+#profile-author-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.author-card {
+    height: 20vh;
+    margin-bottom: 20px;
+}
+
+.author-card img {
+    height: 100%;
+    width: fit-content;
+}
+
+.project-link {
+    color: inherit;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.project-link:hover {
+    color: #4facf7;
+    border: 1px solid #4facf7;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {
@@ -335,5 +384,13 @@ footer a {
 
     #big-hof img {
         height: 20vw;
+    }
+
+    .project-image {
+        border-radius: 10px;
+    }
+
+    #project-profile-container {
+        display: none;
     }
 }

@@ -14,11 +14,24 @@
                     <img src="{{ post.image.url }}" alt="{{ post.image.title }}">
                 </div>
 
-                <div class="col-md-4 col-12 readme-section">
-                    <h5 id="readme-header">Readme.md</h5>
+                <div class="col-md-4 col-12" id="project-profile-container">
+                    <div id="profile-author-container">
+                        <a href="{% url 'view_profile' post.author %}" style="color: inherit; text-decoration: none;">
+                            <span>{{ post.author }}</span>
+                            <i class="fa-solid fa-circle-user fa-2xl"></i>
+                        </a>
+                    </div>
 
-                    <div class="project-readme">
-
+                    <div class="row row-cols-2">
+                        {% for post in author_posts %}
+                            <div class="col">
+                                <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                                    <div class="my-card author-card">
+                                        <img src="{{ post.image }}" class="my-card-img" alt="...">
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -39,8 +52,20 @@
                     </form>
                 </div>
             </div>
+            <a class="author-small d-md-none" style="color: inherit; text-decoration: none; margin-bottom: 20px;" href="{% url 'view_profile' post.author %}">
+                <i class="fa-solid fa-circle-user fa-xl"></i>
+                <span>{{ post.author }}</span>
+            </a>
             <p>{{ post.description }}</p>
-            <a href="{{ post.live_link }}" target="_blank" style="width: max-content;">View this project</a>
+            <div>
+                <a href="{{ post.live_link }}" target="_blank" style="width: max-content; text-decoration: none;" class="project-link">View this project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="{{ post.github_repo_link }}" target="_blank" style="width: max-content; text-decoration: none;" class="project-link">View on GitHub <i class="fa-brands fa-square-github fa-xl"></i></a>
+            </div>
+        </div>
+
+        <div class="readme-section">
+            <h5 id="readme-header">Readme.md</h5>
+            <div class="project-readme">
         </div>
     </div>
 
@@ -91,5 +116,6 @@
 </script>
 
 <script src="{% static 'hub_main/js/load_github.js' %}"></script>
+<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
 
 {% endblock %}

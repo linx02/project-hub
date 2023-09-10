@@ -33,6 +33,7 @@ def project_details(request, slug):
     post = get_object_or_404(Post.objects.all(), slug=slug)
     comments = post.comments.all().order_by('created_on')
     liked = False
+    author_posts = Post.objects.filter(author=post.author)
     if post.likes.filter(id=request.user.id).exists():
         liked = True
     
@@ -40,7 +41,8 @@ def project_details(request, slug):
         'post' : post,
         'comments' : comments,
         'liked' : liked,
-        'author' : post.author
+        'author' : post.author,
+        'author_posts' : author_posts
     }
 
     return render(request, 'project_details.html', context)
