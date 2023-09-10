@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Post, Comment
+from .models import Category, Post, Comment, User
 from django.utils.text import slugify
 from django.contrib import messages
 from django.urls import reverse
@@ -183,3 +183,13 @@ def like_post(request, post_id):
 
     redirect_url = reverse('project_details', kwargs={'slug': post.slug})
     return redirect(redirect_url)
+
+def view_profile(request, username):
+    profile = get_object_or_404(User, username=username)
+    context = {
+        'profile' : profile,
+        'posts' : Post.objects.filter(author=profile),
+        'post_count' : Post.objects.filter(author=profile).count(),
+    }
+
+    return render(request, 'view_profile.html', context)

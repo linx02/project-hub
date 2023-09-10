@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section>
+    <div class="container" id="profile-container">
+        <h1>Your Profile</h1>
+        <div>
+            <i class="fa-solid fa-circle-user fa-2xl"></i>
+            <span>{{ profile }}</span>
+        </div>
+        <h3>Number of posts: {{ post_count }}</h3>
+        <h3>Registered on: {{ profile.date_joined|date:"F j, Y" }}</h4>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid padding-content" id="profile-page-posts">
+        <div class="grid">
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-md-3 col-6 profile-post-card">
+                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                        <div class="my-card">
+                            <img src="{{ post.image }}" class="my-card-img" alt="...">
+                            <div class="my-card-body">
+                                <h5 class="my-card-title">{{ post.title }}</h5>
+                                <div class="my-card-author">
+                                    <i class="fa-solid fa-circle-user fa-2xl"></i>
+                                    <span>{{ post.author }}</span>
+                                </div>
+                                <p class="my-card-text">{{ post.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
+    <script src="{% static 'hub_main/js/option_animations.js' %}"></script>
+	
+{% endblock %}
