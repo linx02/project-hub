@@ -10,12 +10,13 @@
 			<div id="hero-cta">
 				{% if user.is_authenticated %}
 					<h1>Welcome back, <br>{{ user }}!</h1>
-					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg">Submit a project</a>
+					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg" style="margin-bottom: 10px;">Submit a project</a><br>
+					<em><a href="{% url 'profile_page' %}">Your profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a></em>
 				{% else %}
 					<h1>Share your projects<br>with the community</h1>
 					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">Sign Up</a>
 					<em><p>Already have an account?</p></em>
-					<a href="{% url 'login' %}" class="">Login</a>
+					<a href="{% url 'login' %}">Login</a>
 				{% endif %}
 			</div>
 			<div class="d-none d-lg-block" id="hero-svg"></div>

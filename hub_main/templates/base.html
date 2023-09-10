@@ -43,7 +43,7 @@
                       <a class="nav-link" href="{% url 'project_submission' %}">Submit a project</a>
                     </li>
                   {% else %}
-                    <li class="nav-item">
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Sign up or login to submit a project">
                       <a class="nav-link disabled" href="{% url 'project_submission' %}">Submit a project</a>
                     </li>
                   {% endif %}
@@ -96,6 +96,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/23c1e8fb66.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
 
 {% block scripts %}
 
