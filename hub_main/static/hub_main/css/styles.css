@@ -71,7 +71,7 @@
 
 .my-card {
     border-radius: 10px;
-    height: 350px;
+    height: 25vw;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
     background-color: white;
@@ -86,6 +86,10 @@
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+#big-hof img {
+    height: 15vw;
 }
 
 .my-card-body {
@@ -117,6 +121,7 @@
 
 .my-card-author {
     font-size: 1vw;
+    padding: 5px 0px;
 }
 
 footer {
@@ -315,10 +320,20 @@ footer a {
         margin-bottom: 3vh;
     }
 
+    .my-card {
+        height: 40vw;
+    }
+
     .my-card-title {
         font-size: 3vw;
     }
+
     .my-card-text, .my-card-author {
         font-size: 2vw;
+        -webkit-line-clamp: 3;
+    }
+
+    #big-hof img {
+        height: 20vw;
     }
 }

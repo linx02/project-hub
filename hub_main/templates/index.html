@@ -30,17 +30,17 @@
 
         <div class="grid">
             <div class="row">
-                <div class="col-md-6 col-12">
+                <div class="col-md-6 col-12" id="big-hof">
 					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
 							<img src="{{ hof_post_1.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_1.title }}</h5>
-								<p class="my-card-text">{{ hof_post_1.description }}</p>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_1.author }}</span>
 								</div>
+								<p class="my-card-text">{{ hof_post_1.description }}</p>
 							</div>
 						</div>
 					</a>
@@ -51,11 +51,11 @@
 							<img src="{{ hof_post_2.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_2.title }}</h5>
-								<p class="my-card-text">{{ hof_post_2.description }}</p>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_2.author }}</span>
 								</div>
+								<p class="my-card-text">{{ hof_post_2.description }}</p>
 							</div>
 						</div>
 					</a>
@@ -66,11 +66,11 @@
 							<img src="{{ hof_post_3.image }}" class="my-card-img" alt="...">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_3.title }}</h5>
-								<p class="my-card-text">{{ hof_post_3.description }}</p>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_3.author }}</span>
 								</div>
+								<p class="my-card-text">{{ hof_post_3.description }}</p>
 							</div>
 						</div>
 					</a>
@@ -93,11 +93,11 @@
                                 <img src="{{ post.image }}" class="my-card-img" alt="...">
                                 <div class="my-card-body">
                                     <h5 class="my-card-title">{{ post.title }}</h5>
-                                    <p class="my-card-text">{{ post.description }}</p>
-                                    <div class="my-card-author">
+									<div class="my-card-author">
                                         <i class="fa-solid fa-circle-user fa-2xl"></i>
                                         <span>{{ post.author }}</span>
                                     </div>
+                                    <p class="my-card-text">{{ post.description }}</p>
                                 </div>
                             </div>
                         </a>
