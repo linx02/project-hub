@@ -128,9 +128,8 @@ footer {
     margin-top: 20vh;
     height: 35vh;
     background-color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding-top: 10vh;
     font-size: 2rem;
 }
 
