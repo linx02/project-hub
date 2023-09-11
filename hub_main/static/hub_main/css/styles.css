@@ -1,7 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+}
+
+:root {
+    --ghost-white: #F7F7FF;
+    --jet-black: #343434;
+    --un-blue: #5899E2;
+}
+
+body {
+    background-color: var(--ghost-white);
+}
+
+#nav {
+    background-color: var(--ghost-white);
+}
+
+a {
+    color: inherit;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--un-blue);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--jet-black);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--un-blue);
+    --bs-btn-border-color: var(--un-blue);
+
+    --bs-btn-hover-bg: var(--un-blue);
+    --bs-btn-hover-border-color: var(--un-blue);
+    --bs-btn-active-bg: var(--un-blue);
+    --bs-btn-active-border-color: var(--un-blue);
+    --bs-btn-disabled-color: var(--un-blue);
+    --bs-btn-disabled-border-color: var(--un-blue);
+}
+
+.accordion {
+    --bs-accordion-color: var(--jet-black);
+    --bs-accordion-bg: var(--ghost-white);
+
+    --bs-accordion-btn-focus-border-color: var(--un-blue);
+    --bs-accordion-active-color: var(--un-blue);
 }
 
 #hero-outer {
@@ -74,7 +124,7 @@
     height: 25vw;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
-    background-color: white;
+    background-color: var(--ghost-white);
     overflow: hidden;
 }
 
@@ -103,6 +153,10 @@
     font-size: 2vw;
     margin: 0;
     padding: 0;
+    width: calc(90%);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .my-card-text {
@@ -125,16 +179,18 @@
 }
 
 footer {
-    margin-top: 20vh;
-    height: 35vh;
-    background-color: whitesmoke;
+    margin-top: 10vh;
+    padding-top: 5vh;
+    height: 20vh;
+    background-color: var(--ghost-white);
     text-align: center;
-    padding-top: 10vh;
     font-size: 2rem;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Apply box shadow only to the top */
 }
 
 footer a {
     color: black;
+    padding-bottom: 5vh;
 }
 
 .image-profile {
@@ -144,7 +200,7 @@ footer a {
 
 .project-image {
     margin-top: 5vh;
-    background-color: whitesmoke;
+    background-color: var(--ghost-white);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -160,7 +216,8 @@ footer a {
     margin-top: 5vh;
     border-radius: 10px;
     max-height: 60vh;
-    background-color: whitesmoke;
+    background-color: var(--ghost-white);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: scroll;
 }
 
@@ -194,8 +251,9 @@ footer a {
 
 .comment-section {
     margin-top: 10vh;
-    background-color: whitesmoke;
+    background-color: var(--ghost-white);
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .comment-section a {
@@ -262,10 +320,16 @@ footer a {
 }
 
 .post-option {
+    all: initial;
+    color: var(--jet-black);
     border: none;
     background-color: inherit;
     font-size: x-large;
     padding: 20px;
+}
+
+.post-option:hover {
+    cursor: pointer;
 }
 
 #post-comment {
@@ -310,7 +374,7 @@ footer a {
 }
 
 #project-profile-container {
-    background-color: whitesmoke;
+    background-color: var(--ghost-white);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-top: 5vh;
@@ -327,7 +391,7 @@ footer a {
     margin-top: 20px;
     margin-right: 5px;
     padding-bottom: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--jet-black);
     margin-bottom: 20px;
 }
 
@@ -342,16 +406,16 @@ footer a {
 }
 
 .project-link {
-    color: inherit;
+    color: var(--jet-black);
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--jet-black);
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .project-link:hover {
-    color: #4facf7;
-    border: 1px solid #4facf7;
+    color: var(--un-blue);
+    border: 1px solid var(--un-blue);
 }
 
 @media (max-width: 768px) {
