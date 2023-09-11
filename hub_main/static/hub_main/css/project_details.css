@@ -150,3 +150,17 @@
 .delete-comment-btn:hover {
     color: var(--error-red);
 }
+
+@media (max-width: 768px) {
+    .project-image {
+        border-radius: 10px;
+    }
+
+    #project-profile-container {
+        display: none;
+    }
+
+    .title-likes-container h1 {
+        max-width: 65vw;
+    }
+}

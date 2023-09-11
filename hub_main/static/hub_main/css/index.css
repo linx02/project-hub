@@ -64,3 +64,40 @@
 #big-hof img {
     height: 15vw;
 }
+
+@media (max-width: 768px) {
+
+    #hero-cta {
+        margin: auto;
+    }
+
+    #hero-cta h1 {
+        font-size: 3rem;
+    }
+
+    .row .col-12 {
+        margin-bottom: 3vh;
+    }
+
+    .my-card {
+        height: 40vw;
+    }
+
+    .my-card-title {
+        font-size: 3vw;
+        width: 30vw;
+    }
+
+    .my-card-text, .my-card-author {
+        font-size: 2vw;
+        -webkit-line-clamp: 3;
+    }
+
+    #big-hof img {
+        height: 20vw;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+}
