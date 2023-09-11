@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5 {
     font-size: 2vw;
     margin: 0;
     padding: 0;
-    width: calc(90%);
+    width: 18vw;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -147,6 +147,7 @@ footer a {
 
     .my-card-title {
         font-size: 3vw;
+        width: 30vw;
     }
 
     .my-card-text, .my-card-author {

@@ -37,13 +37,13 @@ def project_details(request, slug):
     author_posts = Post.objects.filter(author=post.author)
     if post.likes.filter(id=request.user.id).exists():
         liked = True
-    
+
     context = {
         'post' : post,
         'comments' : comments,
         'liked' : liked,
         'author' : post.author,
-        'author_posts' : author_posts
+        'author_posts' : author_posts[:4]
     }
 
     return render(request, 'project_details.html', context)
@@ -54,7 +54,7 @@ def project_submission(request):
         slug = slugify(title)
 
         if 'generate_link' in request.POST:
-            image_file = f'https://image.thum.io/get/crop/600/auth/{os.environ.get("THUMIO_AUTH")}/{request.POST["live_link"]}'
+            image_file = f'https://image.thum.io/get/width/1600/crop/700/auth/{os.environ.get("THUMIO_AUTH")}/{request.POST["live_link"]}'
 
         else:
             image_file = request.FILES.get('image')

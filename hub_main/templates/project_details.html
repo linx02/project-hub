@@ -50,9 +50,9 @@
                         <form action="{% url 'like_post' post.id %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
-                                <button style="border: none; background-color: inherit;" type="submit"><i id="like" class="fa-solid fa-heart"></i></button>
+                                <button style="border: none; background-color: inherit; color:black;" type="submit"><i id="like" class="fa-solid fa-heart"></i></button>
                             {% else %}
-                                <button style="border: none; background-color: inherit;" type="submit"><i id="like" class="fa-regular fa-heart"></i></button>
+                                <button style="border: none; background-color: inherit; color:black;" type="submit"><i id="like" class="fa-regular fa-heart"></i></button>
                             {% endif %}
                         </form>
                     
