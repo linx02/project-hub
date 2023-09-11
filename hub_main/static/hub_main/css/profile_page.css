@@ -1,0 +1,45 @@
+.profile-post-card {
+    margin-bottom: 80px;
+}
+
+#profile-container {
+    text-align: center;
+    margin-top: 10vh;
+    padding-bottom: 10vh;
+    border-bottom: 1px solid black;
+}
+
+#profile-container h1{
+    margin-bottom: 5vh;
+}
+
+#profile-container h3{
+    font-size: medium;
+}
+
+#profile-container > div{
+    margin-bottom: 5vh;
+    font-size: xx-large;
+}
+
+#profile-page-posts {
+    margin-top: 10vh;
+}
+
+.post-options {
+    display: flex;
+    justify-content: center;
+}
+
+.post-option {
+    all: initial;
+    color: var(--jet-black);
+    border: none;
+    background-color: inherit;
+    font-size: x-large;
+    padding: 20px;
+}
+
+.post-option:hover {
+    cursor: pointer;
+}

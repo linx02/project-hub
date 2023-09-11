@@ -18,7 +18,7 @@ body {
     background-color: var(--ghost-white);
 }
 
-#nav {
+.navbar {
     background-color: var(--ghost-white);
 }
 
@@ -52,77 +52,9 @@ h1, h2, h3, h4, h5 {
     --bs-btn-disabled-border-color: var(--un-blue);
 }
 
-.accordion {
-    --bs-accordion-color: var(--jet-black);
-    --bs-accordion-bg: var(--ghost-white);
-
-    --bs-accordion-btn-focus-border-color: var(--un-blue);
-    --bs-accordion-active-color: var(--un-blue);
-}
-
-#hero-outer {
-    height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1;
-}
-
-#hero-background {
-    background-image: url('../images/background-waves.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 120vh;
-}
-
-#hero-cta {
-    text-align: center;
-}
-
-#hero-cta h1 {
-    font-size: 4rem;
-    padding-bottom: 20px;
-}
-
-#hero-cta p {
-    padding-top: 10px;
-    margin-bottom: 5px;
-}
-
-#hero-cta a {
-    text-decoration: none;
-}
-
-#hero-svg {
-    height: 60vh;
-    width: 40vw;
-    background-image: url('../images/hero-image.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-#hall-of-fame-section {
-    background: linear-gradient(to bottom, #4facf7, white);
-}
-
-.section-title {
-    padding-top: 15vh;
-    margin-bottom: 5vh;
-    font-size: 3rem;
-}
-
-
 .padding-content {
     padding-left: 50px;
     padding-right: 50px;
-}
-
-.recently-added-card {
-    margin-bottom: 20px;
-}
-
-.profile-post-card {
-    margin-bottom: 80px;
 }
 
 .my-card {
@@ -142,10 +74,6 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
-}
-
-#big-hof img {
-    height: 15vw;
 }
 
 .my-card-body {
@@ -191,255 +119,12 @@ footer {
     background-color: var(--ghost-white);
     text-align: center;
     font-size: 2rem;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1); /* Apply box shadow only to the top */
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
     color: black;
     padding-bottom: 5vh;
-}
-
-.image-profile {
-    display: flex;
-    justify-content: center;
-}
-
-.project-image {
-    margin-top: 5vh;
-    background-color: var(--ghost-white);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.project-image img {
-    width: 100%;
-    height: 60vh;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.readme-section {
-    margin-top: 5vh;
-    border-radius: 10px;
-    max-height: 60vh;
-    background-color: var(--ghost-white);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow: scroll;
-}
-
-#readme-header {
-    padding-left: 20px;
-    padding-top: 20px;
-    border-bottom: 1px solid black;
-    padding-bottom: 15px;
-}
-
-.project-readme {
-    width: 100%;
-    height: 85%;
-    padding: 10px 20px;
-    overflow: scroll;
-}
-
-
-.project-data {
-    margin-top: 4vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.title-likes-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.comment-section {
-    margin-top: 10vh;
-    background-color: var(--ghost-white);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.comment-section a {
-    margin: 10px;
-}
-
-.comment {
-    padding: 10px;
-    border-bottom: 1px solid gray;
-}
-
-.comment-date {
-    padding-left: 5px;
-    font-size: 0.9em;
-}
-
-#login-container {
-    margin-top: 10vh;
-    padding-top: 5vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    width: 50%;
-    min-height: 45vh;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-#login-container h3 {
-    text-align: center;
-    padding-bottom: 20px;
-}
-
-#project_submission_container {
-    margin-top: 5vh;
-}
-
-#profile-container {
-    text-align: center;
-    margin-top: 10vh;
-    padding-bottom: 10vh;
-    border-bottom: 1px solid black;
-}
-
-#profile-container h1{
-    margin-bottom: 5vh;
-}
-
-#profile-container h3{
-    font-size: medium;
-}
-
-#profile-container > div{
-    margin-bottom: 5vh;
-    font-size: xx-large;
-}
-
-#profile-page-posts {
-    margin-top: 10vh;
-}
-
-.post-options {
-    display: flex;
-    justify-content: center;
-}
-
-.post-option {
-    all: initial;
-    color: var(--jet-black);
-    border: none;
-    background-color: inherit;
-    font-size: x-large;
-    padding: 20px;
-}
-
-.post-option:hover {
-    cursor: pointer;
-}
-
-#post-comment {
-    padding: 20px;
-}
-
-#comment-btn {
-    margin-top: 10px;
-}
-
-#header {
-    margin: 50px 0px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.likes {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    font-size: x-large;
-}
-
-.likes p {
-    margin: 0;
-    padding-right: 5px;
-}
-
-.likes i:hover {
-    cursor: pointer;
-}
-
-#filter-btn {
-    height: 40px;
-}
-
-.helptext {
-    font-style: italic;
-    color: gray;
-}
-
-#project-profile-container {
-    background-color: var(--ghost-white);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-top: 5vh;
-}
-
-#profile-author-container a{
-    font-size: large;
-}
-
-#profile-author-container {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: 20px;
-    margin-right: 5px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--jet-black);
-    margin-bottom: 20px;
-}
-
-.author-card {
-    height: 20vh;
-    margin-bottom: 20px;
-}
-
-.author-card img {
-    height: 100%;
-    width: fit-content;
-}
-
-.project-link {
-    color: var(--jet-black);
-    padding: 10px;
-    border: 1px solid var(--jet-black);
-    border-radius: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.project-link:hover {
-    color: var(--un-blue);
-    border: 1px solid var(--un-blue);
-}
-
-.errorlist {
-    color: var(--error-red);
-}
-
-label[for="id_password1"] {
-    display: block;
-}
-
-.delete-comment-btn {
-    float: right;
-    padding-right: 5px;
-    transition: color 0.2s ease-in-out;
-}
-
-.delete-comment-btn:hover {
-    color: var(--error-red);
 }
 
 @media (max-width: 768px) {
@@ -483,5 +168,9 @@ label[for="id_password1"] {
 
     #login-container {
         width: 90%;
+    }
+
+    .section-title {
+        font-size: 2em;
     }
 }

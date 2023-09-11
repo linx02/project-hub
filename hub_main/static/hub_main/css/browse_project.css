@@ -1,0 +1,9 @@
+#header {
+    margin: 50px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-btn {
+    height: 40px;
+}

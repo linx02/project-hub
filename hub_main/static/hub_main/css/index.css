@@ -1,0 +1,66 @@
+.accordion {
+    --bs-accordion-color: var(--jet-black);
+    --bs-accordion-bg: var(--ghost-white);
+
+    --bs-accordion-btn-focus-border-color: var(--un-blue);
+    --bs-accordion-active-color: var(--un-blue);
+}
+
+#hero-outer {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+#hero-background {
+    background-image: url('../images/background-waves.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+
+#hero-cta {
+    text-align: center;
+}
+
+#hero-cta h1 {
+    font-size: 4rem;
+    padding-bottom: 20px;
+}
+
+#hero-cta p {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+
+#hero-cta a {
+    text-decoration: none;
+}
+
+#hero-svg {
+    height: 60vh;
+    width: 40vw;
+    background-image: url('../images/hero-image.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#hall-of-fame-section {
+    background: linear-gradient(to bottom, #4facf7, var(--ghost-white));
+}
+
+.section-title {
+    padding-top: 15vh;
+    margin-bottom: 5vh;
+    font-size: 3rem;
+}
+
+.recently-added-card {
+    margin-bottom: 20px;
+}
+
+#big-hof img {
+    height: 15vw;
+}
