@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.from('.hall-of-fame-card', {
-        duration: .7, y: '5%',
+        duration: 1.5, y: '5%',
         opacity: 0,
         ease: 'power4',
         scrollTrigger: {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     gsap.from('.recently-added-card', {
-        duration: .7, y: '5%',
+        duration: 1.5, y: '5%',
         opacity: 0,
         ease: 'power4',
         scrollTrigger: {
