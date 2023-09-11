@@ -11,6 +11,7 @@
     --ghost-white: #F7F7FF;
     --jet-black: #343434;
     --un-blue: #5899E2;
+    --error-red: #EF5D60;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
 a {
     color: inherit;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
 }
 
 a:hover {
@@ -422,6 +424,14 @@ footer a {
     border: 1px solid var(--un-blue);
 }
 
+.errorlist {
+    color: var(--error-red);
+}
+
+label[for="id_password1"] {
+    display: block;
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {
@@ -459,5 +469,9 @@ footer a {
 
     #project-profile-container {
         display: none;
+    }
+
+    #login-container {
+        width: 90%;
     }
 }

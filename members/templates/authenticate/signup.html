@@ -9,7 +9,11 @@
 
             {{ form }}
 
-            <input type="submit">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 20px; margin-top: 20px;">
+                <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+                <em style="padding: 5px 0px; color: gray;">Already have an account?</em>
+                <a href="{% url 'login' %}">Login</a>
+            </div>
         </form>
     </div>
 </section>
@@ -25,7 +29,7 @@
         userInput.classList.add('form-control');
         passInput1.classList.add('form-control');
         passInput2.classList.add('form-control');
-        submitBtn.classList.add('btn', 'btn-primary')
+        submitBtn.classList.add('btn', 'btn-primary');
 
         for(li of listItems){
             li.classList.add('list-group-item');
