@@ -148,6 +148,18 @@ def post_comment(request, post_id):
         redirect_url = reverse('project_details', kwargs={'slug': post.slug})
         return redirect(redirect_url)
     
+def delete_comment(request, comment_id, post_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, 'Comment has been deleted')
+
+        redirect_url = reverse('project_details', kwargs={'slug': post.slug})
+        return redirect(redirect_url)
+
+    
 def browse_project(request, pp, sort_by):
     
     if sort_by == 'a-z':

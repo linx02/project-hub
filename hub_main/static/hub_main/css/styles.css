@@ -432,6 +432,16 @@ label[for="id_password1"] {
     display: block;
 }
 
+.delete-comment-btn {
+    float: right;
+    padding-right: 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.delete-comment-btn:hover {
+    color: var(--error-red);
+}
+
 @media (max-width: 768px) {
 
     #hero-cta {
