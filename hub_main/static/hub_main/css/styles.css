@@ -21,6 +21,10 @@ body {
     background-color: var(--ghost-white);
 }
 
+.nav-link:hover {
+    color: var(--un-blue);
+}
+
 a {
     color: inherit;
     transition: all 0.2s ease-in-out;

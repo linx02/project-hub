@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.db.models import Count
 import cloudinary.uploader
+import os
 
 # Create your views here.
 
@@ -52,8 +53,12 @@ def project_submission(request):
         title = request.POST.get('title')
         slug = slugify(title)
 
-        image_file = request.FILES.get('image')
-        print(image_file)
+        if 'generate_link' in request.POST:
+            image_file = f'https://image.thum.io/get/crop/600/auth/{os.environ.get("THUMIO_AUTH")}/{request.POST["live_link"]}'
+
+        else:
+            image_file = request.FILES.get('image')
+
         upload_result = cloudinary.uploader.upload(image_file)
         
         posts_table = Post(title=request.POST['title'],

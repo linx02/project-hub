@@ -28,7 +28,13 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Project Image <em style="color: grey;">(Optional)</em></label>
-                <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                <br>
+                <div style="display:flex; align-items: center; height: max-content;">
+                    <input type="checkbox" class="btn-check" id="generate-link" autocomplete="off" name="generate_link">
+                    <label class="btn btn-outline-primary" for="generate-link" style="white-space: nowrap;">Generate from link</label>
+                    <em style="padding: 0px 10px;">Or</em>
+                    <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="live-link">Live link to project</label>
