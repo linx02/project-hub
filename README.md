@@ -3,6 +3,11 @@
 
 Project Hub is a sharing platform mainly aimed at students of Code Institute looking to share their school projects and check out other students projects, but is open to everyone and all users are welcome.
 
+![Device Mockups](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+# Project Hub
+
+Project Hub is a sharing platform mainly aimed at students of Code Institute looking to share their school projects and check out other students projects, but is open to everyone and all users are welcome.
+
 ![Device Mockups](media/mockups.png)
 ## Features
 
@@ -325,3 +330,67 @@ __Comment section__
 The comment section allows users to post comments on a post aswell as delete their own comments using the X button in the above image.
 
 _Additional_: The delete button displays a modal requiring the user to confirm deletion of the comment.
+## Deployment
+
+This project was deployed to Heroku using these steps:
+
+    1. ...
+    2. ...
+    3. ...
+    4. ...
+    5. ...
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/linx02/project-hub.git
+```
+
+Go to the project directory
+
+```bash
+  cd project_hub
+```
+
+Install dependencies
+
+```bash
+  pip3 install -r requirements.txt
+```
+
+Start the server
+
+```bash
+  python3 manage.py runserver
+```
+
+Note that you will have to setup your own database and API connections.
+## Credits
+
+__API's used__:
+
+[GitHub' REST API](https://docs.github.com/en/rest?apiVersion=2022-11-28): For fetching Readme.md file for Readme section in [Project page](#project-page).
+
+[Thum.io's URL API](https://www.thum.io/documentation/api/url): For generating screenshots of provided links during project submission.
+
+__Libraries and frameworks__:
+
+[Bootstrap](https://getbootstrap.com/): CSS framework used.
+
+[Django](https://www.djangoproject.com/): Web framework used.
+
+[GreenSock's GSAP](https://greensock.com/): For animations.
+
+__Data storing__:
+
+[PostgreSQL](https://www.postgresql.org/): Database management system used.
+
+[Cloudinary](https://cloudinary.com/): For storing image files in the cloud.
+
+__Media__:
+
+[Freepik](https://www.freepik.com/): For svg in the hero section.
+
+[Haikei](https://haikei.app/): For background svg on the [home page](#home-page)
