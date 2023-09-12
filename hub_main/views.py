@@ -212,3 +212,6 @@ def view_profile(request, username):
     }
 
     return render(request, 'view_profile.html', context)
+
+def custom_404_page(request, *args, **kwargs):
+    return render(request, '404.html', status=404)

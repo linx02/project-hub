@@ -1,0 +1,16 @@
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15vh;
+    margin-bottom: 30vh;
+}
+
+#main h1 {
+    color: var(--error-red);
+}
+
+.btn {
+    margin-top: 50px;
+}
