@@ -30,6 +30,10 @@
     padding-bottom: 20px;
 }
 
+#header-word {
+    color: var(--un-blue);
+}
+
 #hero-cta p {
     padding-top: 10px;
     margin-bottom: 5px;

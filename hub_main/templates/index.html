@@ -17,8 +17,8 @@
 					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg" style="margin-bottom: 10px;">Submit a project</a><br>
 					<em><a href="{% url 'profile_page' %}">Your profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a></em>
 				{% else %}
-					<h1>Share your projects<br>with the community</h1>
-					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">Sign Up</a>
+					<h1 style="display: inline;"><div id="header-word" style="display: inline-block;">Share</div> </h1><h1 style="display: inline;">your projects<br>with the community</h1>
+					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg" style="display:inline-block; margin-top: 20px;">Sign Up</a>
 					<em><p>Already have an account?</p></em>
 					<a href="{% url 'login' %}">Login</a>
 				{% endif %}
