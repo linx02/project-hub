@@ -1,9 +1,3 @@
-
-# Project Hub
-
-Project Hub is a sharing platform mainly aimed at students of Code Institute looking to share their school projects and check out other students projects, but is open to everyone and all users are welcome.
-
-![Device Mockups](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 # Project Hub
 
 Project Hub is a sharing platform mainly aimed at students of Code Institute looking to share their school projects and check out other students projects, but is open to everyone and all users are welcome.
@@ -330,6 +324,125 @@ __Comment section__
 The comment section allows users to post comments on a post aswell as delete their own comments using the X button in the above image.
 
 _Additional_: The delete button displays a modal requiring the user to confirm deletion of the comment.
+## Testing
+
+__Manual testing__
+
+_Tests done with DEBUG = False in settings.py_
+
+___Case:___ Accessing authorization required links without logging in:
+
+- Link: http://127.0.0.1:8000/profile_page/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/project_submission/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Project submission page loaded
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/project_update/14/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Project update page loaded
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/delete_post/14/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/post_comment/14/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/like_post/14/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Link: http://127.0.0.1:8000/delete_comment/10/14/
+
+    Expected result: Redirect to home page
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+___Case:___ Inserting invalid or no data during project submission
+
+- Test: Upload file larger than 10MB
+
+    Expected result: Error message
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Test: Upload file + toggle generate from link
+
+    Expected result: Error message / Toggle not available when file uploaded
+    
+    Actual result: Post uploaded using image generated from link
+
+    Resolved by: ...
+
+- Test: Post using a non github repo link in field:
+
+    Expected result: Error message
+    
+    Actual result: Post uploaded successfully
+
+    Resolved by: ...
+
+___Case:___ Inserting invalid or no data when updating existing post
+
+- Test: Upload file larger than 10MB
+
+    Expected result: Error message
+    
+    Actual result: Server Error (500)
+
+    Resolved by: ...
+
+- Test: Upload file + toggle generate from link
+
+    Expected result: Error message / Toggle not available when file uploaded
+    
+    Actual result: Post uploaded using image generated from link
+
+    Resolved by: ...
+
+- Test: Post using a non github repo link in field:
+
+    Expected result: Error message
+    
+    Actual result: Post uploaded successfully
+
+    Resolved by: ...
+
+__Unit testing__
+
+
 ## Deployment
 
 This project was deployed to Heroku using these steps:
