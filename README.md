@@ -139,7 +139,7 @@ Provide users with an easy way to sort the content displayed based on the users 
 <a name="project-submission-page"></a>
 ### __Project submission page__
 
-![Project submission page](media/projectsubmissionpage.png)
+![Project submission page](media/projectsubmission.png)
 
 __The Project submission page consists of:__
 
