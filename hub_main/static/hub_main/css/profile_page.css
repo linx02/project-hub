@@ -43,3 +43,15 @@
 .post-option:hover {
     cursor: pointer;
 }
+
+.edit, .delete {
+    transition: color 0.2s ease-in-out;
+}
+
+.edit:hover {
+    color: var(--un-blue);
+}
+
+.delete:hover {
+    color: var(--error-red);
+}

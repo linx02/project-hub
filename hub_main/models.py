@@ -21,8 +21,8 @@ class Post(models.Model):
     created_on = models.DateField(auto_now_add=True)
     description = models.TextField()
     likes = models.ManyToManyField(User, related_name='liked_posts', null=True, blank=True)
-    live_link = models.URLField(blank=False)
-    github_repo_link = models.URLField()
+    live_link = models.URLField(blank=True, null=True)
+    github_repo_link = models.URLField(blank=True, null=True)
 
     class Meta:
         ordering = ['created_on']

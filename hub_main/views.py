@@ -59,17 +59,22 @@ def project_submission(request):
 
         if 'generate_link' in request.POST:
             image_file = f'https://image.thum.io/get/width/1600/crop/700/auth/{os.environ.get("THUMIO_AUTH")}/{request.POST["live_link"]}'
+            upload_result = cloudinary.uploader.upload(image_file)
+            image = upload_result['secure_url']
 
-        else:
+        elif request.FILES:
             image_file = request.FILES.get('image')
-
-        upload_result = cloudinary.uploader.upload(image_file)
+            upload_result = cloudinary.uploader.upload(image_file)
+            image = upload_result['secure_url']
+        
+        else:
+            image = None
         
         posts_table = Post(title=request.POST['title'],
                            author=request.user,
                            Category_id=request.POST['category'],
                            description=request.POST['description'],
-                           image=upload_result['secure_url'],
+                           image=image,
                            live_link=request.POST['live_link'],
                            github_repo_link=request.POST['github_repo_link'],
                            slug=slug)
@@ -98,12 +103,20 @@ def project_update(request, post_id):
         post_to_update.Category_id=request.POST.get('category')
         post_to_update.description=request.POST.get('description')
 
-        
-        image_file = request.FILES.get('image')
-        print(image_file)
-        upload_result = cloudinary.uploader.upload(image_file)
+        if 'generate_link' in request.POST:
+            image_file = f'https://image.thum.io/get/width/1600/crop/700/auth/{os.environ.get("THUMIO_AUTH")}/{request.POST["live_link"]}'
+            upload_result = cloudinary.uploader.upload(image_file)
+            image = upload_result['secure_url']
 
-        post_to_update.image=upload_result['secure_url']
+        elif request.FILES:
+            image_file = request.FILES.get('image')
+            upload_result = cloudinary.uploader.upload(image_file)
+            image = upload_result['secure_url']
+        
+        else:
+            image = None
+
+        post_to_update.image=image
         post_to_update.live_link=request.POST.get('live_link')
         post_to_update.github_repo_link=request.POST.get('github_repo_link')
         post_to_update.slug=slug

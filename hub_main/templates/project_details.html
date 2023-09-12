@@ -67,8 +67,12 @@
             </a>
             <p>{{ post.description }}</p>
             <div>
+                {% if post.live_link %}
                 <a href="{{ post.live_link }}" target="_blank" style="width: max-content; text-decoration: none;" class="project-link">View this project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                {% endif %}
+                {% if post.github_repo_link %}
                 <a href="{{ post.github_repo_link }}" target="_blank" style="width: max-content; text-decoration: none;" class="project-link">View on GitHub <i class="fa-brands fa-square-github fa-xl"></i></a>
+                {% endif %}
             </div>
         </div>
 

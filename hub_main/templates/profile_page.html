@@ -40,8 +40,8 @@
                         </div>
                     </a>
                     <div class="post-options">
-                        <a class="post-option" style="color: inherit;" href="{% url 'project_update' post.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <button type="button" class="post-option" data-bs-toggle="modal" data-bs-target="#{{ post.slug }}">
+                        <a class="post-option edit" href="{% url 'project_update' post.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <button type="button" class="post-option delete" data-bs-toggle="modal" data-bs-target="#{{ post.slug }}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
