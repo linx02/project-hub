@@ -338,7 +338,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Check user authenticated in associated view
 
 - Link: http://127.0.0.1:8000/project_submission/
 
@@ -346,7 +346,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Project submission page loaded
 
-    Resolved by: ...
+    Resolved by: Check user authenticated in associated view
 
 - Link: http://127.0.0.1:8000/project_update/14/
 
@@ -354,7 +354,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Project update page loaded
 
-    Resolved by: ...
+    Resolved by: Check user authenticated and post author in associated view
 
 - Link: http://127.0.0.1:8000/delete_post/14/
 
@@ -362,7 +362,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Check user authenticated and post author in associated view
 
 - Link: http://127.0.0.1:8000/post_comment/14/
 
@@ -370,7 +370,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Check user authenticated in associated view
 
 - Link: http://127.0.0.1:8000/like_post/14/
 
@@ -378,7 +378,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Check user authenticated in associated view
 
 - Link: http://127.0.0.1:8000/delete_comment/10/14/
 
@@ -386,7 +386,7 @@ ___Case:___ Accessing authorization required links without logging in:
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Check user authenticated and comment owner in associated view
 
 ___Case:___ Inserting invalid or no data during project submission
 
@@ -396,7 +396,7 @@ ___Case:___ Inserting invalid or no data during project submission
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Write js script to check file size
 
 - Test: Upload file + toggle generate from link
 
@@ -404,7 +404,7 @@ ___Case:___ Inserting invalid or no data during project submission
     
     Actual result: Post uploaded using image generated from link
 
-    Resolved by: ...
+    Resolved by: Write js script to disable button if file uploaded
 
 - Test: Post using a non github repo link in field:
 
@@ -422,7 +422,7 @@ ___Case:___ Inserting invalid or no data when updating existing post
     
     Actual result: Server Error (500)
 
-    Resolved by: ...
+    Resolved by: Write js script to validate inputs.
 
 - Test: Upload file + toggle generate from link
 
@@ -430,7 +430,7 @@ ___Case:___ Inserting invalid or no data when updating existing post
     
     Actual result: Post uploaded using image generated from link
 
-    Resolved by: ...
+    Resolved by: Write js script to validate inputs.
 
 - Test: Post using a non github repo link in field:
 
@@ -438,7 +438,7 @@ ___Case:___ Inserting invalid or no data when updating existing post
     
     Actual result: Post uploaded successfully
 
-    Resolved by: ...
+    Resolved by: Write js script to validate inputs.
 
 __Unit testing__
 

@@ -49,7 +49,11 @@ def project_details(request, slug):
     return render(request, 'project_details.html', context)
 
 def project_submission(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    
     if request.method == 'POST':
+
         title = request.POST.get('title')
         slug = slugify(title)
 
@@ -77,7 +81,13 @@ def project_submission(request):
         return render(request, 'project_submission.html')
 
 def project_update(request, post_id):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
     post_to_update = get_object_or_404(Post, id=post_id)
+
+    if post_to_update.author != request.user:
+        return redirect('home')
 
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -116,6 +126,9 @@ def project_update(request, post_id):
         return render(request, 'project_update.html', context)
 
 def profile_page(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    
     context = {
         'posts' : Post.objects.filter(author=request.user),
         'post_count' : Post.objects.filter(author=request.user).count(),
@@ -124,7 +137,13 @@ def profile_page(request):
     return render(request, 'profile_page.html', context)
 
 def delete_post(request, post_id):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
     post = get_object_or_404(Post, id=post_id)
+
+    if post.author != request.user:
+        return redirect('home')
 
     if request.method == 'POST':
         post.delete()
@@ -133,6 +152,9 @@ def delete_post(request, post_id):
     return redirect('profile_page')
 
 def post_comment(request, post_id):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         post = get_object_or_404(Post, id=post_id)
         
@@ -149,8 +171,14 @@ def post_comment(request, post_id):
         return redirect(redirect_url)
     
 def delete_comment(request, comment_id, post_id):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
     comment = get_object_or_404(Comment, id=comment_id)
     post = get_object_or_404(Post, id=post_id)
+
+    if comment.user != request.user:
+        return redirect('home')
 
     if request.method == 'POST':
         comment.delete()
@@ -193,6 +221,9 @@ def browse_project(request, pp, sort_by):
 
 
 def like_post(request, post_id):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    
     post = get_object_or_404(Post, id=post_id)
 
     if post.likes.filter(id=request.user.id).exists():

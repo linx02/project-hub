@@ -34,12 +34,13 @@
             <div class="mb-3">
                 <label class="form-label" for="image">Project Image <em style="color: grey;">(Optional)</em></label>
                 <br>
-                <div style="display:flex; align-items: center; height: max-content;">
+                <div style="display:flex; align-items: center; height: max-content;" id="file-upload">
                     <input type="checkbox" class="btn-check" id="generate-link" autocomplete="off" name="generate_link">
                     <label class="btn btn-outline-primary" for="generate-link" style="white-space: nowrap;">Generate from link</label>
                     <em style="padding: 0px 10px;">Or</em>
                     <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg" />
                 </div>
+                <p id="error-text">File size exceeds the maximum allowed size (10MB)</p>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="live-link">Live link to project</label>
@@ -47,10 +48,15 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">GitHub repo link <em style="color: grey;">(Optional)</em></label>
-                <input name="github_repo_link" type="url" id="description" class="form-control">
+                <input name="github_repo_link" type="url" id="github_repo_link" class="form-control">
             </div>
-            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <p id="error-text-github">Invalid GitHub repo link, readme.md will not be loaded. Correct format: https://github.com/username/repo-name</p>
+            <button type="submit" class="btn btn-outline-primary" id="submit-btn">Submit</button>
             </fieldset>
         </form>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'hub_main/js/check_filesize.js' %}"></script>
 {% endblock %}
