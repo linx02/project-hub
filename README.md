@@ -396,7 +396,7 @@ ___Case:___ Inserting invalid or no data during project submission
     
     Actual result: Server Error (500)
 
-    Resolved by: Write js script to check file size
+    Resolved by: Write js script to validate inputs.
 
 - Test: Upload file + toggle generate from link
 
@@ -404,7 +404,7 @@ ___Case:___ Inserting invalid or no data during project submission
     
     Actual result: Post uploaded using image generated from link
 
-    Resolved by: Write js script to disable button if file uploaded
+    Resolved by: Write js script to validate inputs.
 
 - Test: Post using a non github repo link in field:
 
@@ -412,7 +412,7 @@ ___Case:___ Inserting invalid or no data during project submission
     
     Actual result: Post uploaded successfully
 
-    Resolved by: ...
+    Resolved by: Write js script to validate inputs.
 
 ___Case:___ Inserting invalid or no data when updating existing post
 
