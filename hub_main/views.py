@@ -171,6 +171,12 @@ def post_comment(request, post_id):
     if request.method == 'POST':
         post = get_object_or_404(Post, id=post_id)
         
+        if request.POST.get('comment_body').strip() == '':
+            messages.success(request, 'Empty comments not allowed')
+
+            redirect_url = reverse('project_details', kwargs={'slug': post.slug})
+            return redirect(redirect_url)
+
         comment = Comment(
             body=request.POST['comment_body'],
             user=request.user,

@@ -18,15 +18,6 @@ urls = {
     'profile' : f'{base_url}profile/linx/',
 }
 
-def logout(selenium_driver):
-    try:
-        logout_button = selenium_driver.find_element(by=By.LINK_TEXT, value='Logout')
-    except selenium.common.exceptions.NoSuchElementException:
-        return
-
-    if 'Logout' in logout_button.get_attribute('innerHTML'):
-        logout_button.click()
-
 def redirect_home_confirm(selenium_driver):
     try:
         selenium_driver.find_element(by=By.ID, value='hero-svg')
