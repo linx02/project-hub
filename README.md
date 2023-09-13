@@ -442,6 +442,25 @@ ___Case:___ Inserting invalid or no data when updating existing post
 
 __Unit testing__
 
+Unit tests were written using PyTest and Selenium since Seleniums abillity to interact directly with the browser better reflects how the user actually would interact with the site. Tests were written with the AAA(Arrange, Act, Assert) principle in mind.
+
+Unit test files:
+
+    1. test_noauth_protection.py
+        - Tests access to authorization required url routes when user is not authenticated
+    2. test_auth.py
+        - Tests sign up functionality
+        - Tests login functionality
+        - Tests access to profile page and project submission page when logged in
+    3. test_misc.py
+        - Tests access to login and signup page when already logged in
+    4. test_like_comment.py
+        - Tests like / unlike functionality
+        - Tests comment / delete comment functionality
+    5. test_submission_update
+        - ...
+        - ...
+
 
 ## Deployment
 
