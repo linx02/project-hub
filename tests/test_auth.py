@@ -12,6 +12,18 @@ urls = {
     'profile_page' : f'{base_url}profile_page/',
 }
 
+def login(selenium_driver):
+    
+    selenium_driver.get(urls['login'])
+    username_input = selenium_driver.find_element(by=By.ID, value='username')
+    password_input = selenium_driver.find_element(by=By.ID, value='password')
+
+    username_input.send_keys(testuser_credentials[0])
+    password_input.send_keys(testuser_credentials[1])
+
+    login_button = selenium_driver.find_element(by=By.ID, value='login-submit')
+    login_button.click()
+
 def logout(selenium_driver):
     try:
         logout_button = selenium_driver.find_element(by=By.LINK_TEXT, value='Logout')
@@ -43,18 +55,7 @@ def test_create_new_user(selenium_driver):
 def test_login_user(selenium_driver):
     
     logout(selenium_driver)
-
-    selenium_driver.get(urls['login'])
-    username_input = selenium_driver.find_element(by=By.ID, value='username')
-    password_input = selenium_driver.find_element(by=By.ID, value='password')
-
-    username_input.send_keys(testuser_credentials[0])
-    password_input.send_keys(testuser_credentials[1])
-
-    login_button = selenium_driver.find_element(by=By.ID, value='login-submit')
-    login_button.click()
-
-
+    login(selenium_driver)
 
     assert redirect_home_confirm(selenium_driver)
 
