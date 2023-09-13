@@ -26,41 +26,55 @@ def redirect_home_confirm(selenium_driver):
         return False
 
 def test_noauth_like(selenium_driver):
-
+    # Act
     selenium_driver.get(urls['like'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 
 def test_noauth_comment(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['comment'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 
 def test_noauth_delete_comment(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['delete_comment'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 def test_noauth_project_submission(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['submission'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 
 def test_noath_project_update(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['update'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 
 def test_noauth_project_delete(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['delete_post'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
 
 
 def test_noauth_access_profile_page(selenium_driver):
-    
+    # Act
     selenium_driver.get(urls['profile_page'])
+
+    # Assert
     assert redirect_home_confirm(selenium_driver)
