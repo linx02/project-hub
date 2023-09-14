@@ -432,6 +432,10 @@ os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
 os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
 ```
 
+## Database schema
+
+![Database schema](media/schema.png)
+
 ## Credits
 
 __API's used__:
