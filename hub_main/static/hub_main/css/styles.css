@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
 
+/* Apply to everything */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@
     font-family: 'Lexend', sans-serif;
 }
 
+/* Define colors */
 :root {
     --ghost-white: #F7F7FF;
     --jet-black: #343434;
@@ -14,10 +16,12 @@
     --error-red: #EF5D60;
 }
 
+/* Body */
 body {
     background-color: var(--ghost-white);
 }
 
+/* Navbar */
 .navbar {
     background-color: var(--ghost-white);
 }
@@ -26,6 +30,7 @@ body {
     color: var(--un-blue);
 }
 
+/* Links */
 a {
     color: inherit;
     transition: all 0.2s ease-in-out;
@@ -36,10 +41,12 @@ a:hover {
     color: var(--un-blue);
 }
 
+/* Headings */
 h1, h2, h3, h4, h5 {
     color: var(--jet-black);
 }
 
+/* Override bootstrap buttons */
 .btn-outline-primary {
     --bs-btn-color: var(--un-blue);
     --bs-btn-border-color: var(--un-blue);
@@ -52,11 +59,13 @@ h1, h2, h3, h4, h5 {
     --bs-btn-disabled-border-color: var(--un-blue);
 }
 
+/* Apply padding helper class */
 .padding-content {
     padding-left: 50px;
     padding-right: 50px;
 }
 
+/* Project cards */
 .my-card {
     border-radius: 10px;
     height: 25vw;
@@ -111,6 +120,7 @@ h1, h2, h3, h4, h5 {
     padding: 10px 0px;
 }
 
+/* Footer */
 footer {
     margin-top: 10vh;
     padding-top: 5vh;
@@ -126,6 +136,7 @@ footer a {
     padding-bottom: 5vh;
 }
 
+/* Media queries */
 @media (max-width: 768px) {
 
     #hero-cta {

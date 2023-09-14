@@ -1,3 +1,4 @@
+/* Project image */
 .project-image {
     margin-top: 5vh;
     background-color: var(--ghost-white);
@@ -13,6 +14,7 @@
     
 }
 
+/* Readme section */
 .readme-section {
     margin-top: 5vh;
     border-radius: 10px;
@@ -36,7 +38,7 @@
     overflow: scroll;
 }
 
-
+/* Project info */
 .project-data {
     margin-top: 4vh;
     display: flex;
@@ -44,12 +46,14 @@
     position: relative;
 }
 
+/* Title and likes */
 .title-likes-container {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
+/* Comment section */
 .comment-section {
     margin-top: 10vh;
     background-color: var(--ghost-white);
@@ -79,6 +83,17 @@
     margin-top: 10px;
 }
 
+.delete-comment-btn {
+    float: right;
+    padding-right: 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.delete-comment-btn:hover {
+    color: var(--error-red);
+}
+
+/* Likes */
 .likes {
     position: absolute;
     top: 0;
@@ -97,6 +112,7 @@
     cursor: pointer;
 }
 
+/* Post author profile */
 #project-profile-container {
     background-color: var(--ghost-white);
     border-top-right-radius: 10px;
@@ -119,6 +135,7 @@
     margin-bottom: 20px;
 }
 
+/* Other posts cards */
 .author-card {
     height: 20vh;
     margin-bottom: 20px;
@@ -132,6 +149,7 @@
     margin-right: auto;
 }
 
+/* Post links */
 .project-link {
     color: var(--jet-black);
     padding: 10px;
@@ -145,16 +163,7 @@
     border: 1px solid var(--un-blue);
 }
 
-.delete-comment-btn {
-    float: right;
-    padding-right: 5px;
-    transition: color 0.2s ease-in-out;
-}
-
-.delete-comment-btn:hover {
-    color: var(--error-red);
-}
-
+/* Media queries */
 @media (max-width: 768px) {
     .project-image {
         border-radius: 10px;

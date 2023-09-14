@@ -1,13 +1,16 @@
+/* Page header */
 #header {
     margin: 50px 0px;
     display: flex;
     justify-content: space-between;
 }
 
+/* Sort by button */
 #filter-btn {
     height: 40px;
 }
 
+/* Override my-card class */
 .my-card {
     margin-bottom: 20px;
 }

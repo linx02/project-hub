@@ -1,7 +1,9 @@
+/* Override my-card class */
 .profile-post-card {
     margin-bottom: 80px;
 }
 
+/* Profile container / Upper section */
 #profile-container {
     text-align: center;
     margin-top: 10vh;
@@ -22,10 +24,12 @@
     font-size: xx-large;
 }
 
+/* All project cards */
 #profile-page-posts {
     margin-top: 10vh;
 }
 
+/* Delete / Update options */
 .post-options {
     display: flex;
     justify-content: center;

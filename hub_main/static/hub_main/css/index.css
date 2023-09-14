@@ -1,3 +1,4 @@
+/* Override bootstrap accordion */
 .accordion {
     --bs-accordion-color: var(--jet-black);
     --bs-accordion-bg: var(--ghost-white);
@@ -6,6 +7,7 @@
     --bs-accordion-active-color: var(--un-blue);
 }
 
+/* Hero section */
 #hero-outer {
     height: 85vh;
     display: flex;
@@ -51,6 +53,7 @@
     background-repeat: no-repeat;
 }
 
+/* Hall of fame / Recently added sections */
 #hall-of-fame-section {
     background: linear-gradient(to bottom, #4facf7, var(--ghost-white));
 }
@@ -69,6 +72,7 @@
     height: 15vw;
 }
 
+/* Media queries */
 @media (max-width: 768px) {
 
     #hero-cta {

@@ -1,3 +1,4 @@
+/* Login section */
 #login-container {
     margin-top: 10vh;
     padding-top: 5vh;
@@ -27,6 +28,7 @@ label[for="id_password1"] {
     display: block;
 }
 
+/* Media queries */
 @media (max-width: 768px) {
     #login-container {
         width: 90%;

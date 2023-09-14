@@ -1,7 +1,9 @@
+/* Project submission form */
 #project_submission_container {
     margin-top: 5vh;
 }
 
+/* Error texts */
 #error-text {
     display: none;
     padding-top: 10px;
