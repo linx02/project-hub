@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-# Create your models here.
-
+# Category model
 class Category(models.Model):
     name = models.CharField(max_length=200, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
@@ -12,6 +11,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+# Post model
 class Post(models.Model):
     title = models.CharField(max_length=200, blank=False)
     image = CloudinaryField(blank=True, null=False, default='https://res.cloudinary.com/dyzoccovz/image/upload/v1694180826/cfdiszurokmzpvjxb5r9.png')
@@ -33,6 +33,7 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+# Comment model
 class Comment(models.Model):
     body = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -45,6 +46,7 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment {self.body} by {self.user}'
 
+# Extend djangos User model - not being used
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     github_profile_link = models.URLField(blank=True, null=True)
