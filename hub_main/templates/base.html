@@ -6,25 +6,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Load bootstrap and general styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/styles.css' %}">
 
+    <!-- Page specific styles -->
     {% block styles %}
 
     {% endblock %}
-
+    <!-- Load favicon and set title -->
     <link rel="icon" href="{% static 'hub_main/images/favicon.ico' %}" type="image/x-icon">
     <title>Project Hub</title>
 </head>
 <body>
     <header>
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
+              <!-- Logo -->
               <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'hub_main/images/logo.png' %}" height="30" alt="logo"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              <!-- Nav items -->
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
@@ -76,6 +80,7 @@
           </nav>
     </header>
 
+    <!-- Feedback messages -->
     {% if messages %}
       {% for message in messages %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -85,6 +90,7 @@
       {% endfor %}
     {% endif %}
 
+    <!-- Page specific content -->
     <main>
         {% block content %}
 
@@ -92,6 +98,7 @@
     </main>
 </body>
 
+<!-- Footer -->
 <footer>
     <h3>Check out my socials!</h3>
     <div>
@@ -100,6 +107,7 @@
     </div>
 </footer>
 
+<!-- Load external scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/23c1e8fb66.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -109,6 +117,7 @@
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
 
+<!-- Page specific scripts -->
 {% block scripts %}
 
 {% endblock %}

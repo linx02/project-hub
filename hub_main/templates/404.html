@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
-<link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/404.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/404.css' %}">
 {% endblock %}
 
 {% block content %}
-
+<!-- 404 content -->
 <section>
     <div id="main">
         <h1>404</h1>
         <h2>Nothing to see here...</h2>
-
+        <!-- Home button -->
         <a href="{% url 'home' %}" class="btn btn-outline-primary">Go home <i class="fa-solid fa-house"></i></a>
     </div>
 </section>

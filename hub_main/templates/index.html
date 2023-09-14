@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/index.css' %}">
 {% endblock %}
 
 {% block content %}
 
+<!-- Hero section -->
 <section>
+	<!-- Background waves container -->
 	<div id="hero-background">
 		<div class="container" id="hero-outer">
+			<!-- Call to action section -->
 			<div id="hero-cta">
 				{% if user.is_authenticated %}
 					<h1>Welcome back, <br>{{ user }}!</h1>
@@ -23,18 +26,21 @@
 					<a href="{% url 'login' %}">Login</a>
 				{% endif %}
 			</div>
+			<!-- Hero svg -->
 			<div class="d-none d-lg-block" id="hero-svg"></div>
 		</div>
 	</div>
 </section>
 
+<!-- Hall of fame section -->
 <section>
     <div class="container-fluid padding-content" id="hall-of-fame-section">
-
+		<!-- Hall of fame heading -->
         <h2 class="section-title">Hall of Fame</h2>
 
         <div class="grid">
             <div class="row">
+				<!-- Hall of fame post 1 (big) -->
                 <div class="col-md-6 col-12" id="big-hof">
 					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
@@ -50,6 +56,7 @@
 						</div>
 					</a>
                 </div>
+				<!-- Hall of fame post 2 -->
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_2.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
@@ -65,6 +72,7 @@
 						</div>
 					</a>
                 </div>
+				<!-- Hall of fame post 3 -->
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_3.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
@@ -85,13 +93,16 @@
     </div>
 </section>
 
+<!-- Recently added section -->
 <section>
     <div class="container-fluid padding-content">
+	<!-- Recently added heading -->
     <h2 class="section-title">Recently Added</h2>
 
             <div class="grid">
                 <div class="row">
                     {% for post in recent_posts %}
+					<!-- Recently added card -->
                     <div class="col-md-3 col-6 recently-added-card">
                         <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
                             <div class="my-card">
@@ -113,33 +124,37 @@
         </div>
 </section>
 
+<!-- Browse by category section -->
 <section>
     <div class="container-fluid padding-content">
+		<!-- Browse by category heading -->
         <h2 class="section-title">Browse by Category</h2>
 
-    <div class="accordion" id="accordionCategories">
-        {% for category in categories %}
-            <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.slug }}" aria-expanded="false">
-                <strong>{{ category.name }}</strong>
-                </button>
-            </h2>
-            <div id="{{ category.slug }}" class="accordion-collapse collapse" data-bs-parent="#accordionCategories">
-                <div class="accordion-body">
-                <p>{{ category.description }}</p>
-                <a href="{% url 'browse_project' category.id 'a-z' %}" class="btn btn-outline-primary">Browse projects</a>
-                </div>
-            </div>
-            </div>
-        {% endfor %}
-      </div>
-
-      </div>
+	<!-- Browse by category accordion -->
+		<div class="accordion" id="accordionCategories">
+			{% for category in categories %}
+				<!-- Accordion item -->
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.slug }}" aria-expanded="false">
+							<strong>{{ category.name }}</strong>
+						</button>
+					</h2>
+					<div id="{{ category.slug }}" class="accordion-collapse collapse" data-bs-parent="#accordionCategories">
+						<div class="accordion-body">
+							<p>{{ category.description }}</p>
+							<a href="{% url 'browse_project' category.id 'a-z' %}" class="btn btn-outline-primary">Browse projects</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+    </div>
 </section>
 
 {% endblock %}
 
+<!-- Load page specific scripts -->
 {% block scripts %}
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

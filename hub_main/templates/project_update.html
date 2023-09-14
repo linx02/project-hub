@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/project_update.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="container" id="project_submission_container">
+        <!-- Entire form -->
         <form method="POST" action="{% url 'project_update' post_id %}" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset>
             <legend>Edit post</legend>
+            <!-- Title input -->
             <div class="mb-3">
                 <label for="title" class="form-label">Title <em style="color: grey;">(Required)</em></label>
                 <input name="title" type="text" id="title" class="form-control" value="{{ title }}" required>
             </div>
+            <!-- Category selection -->
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
                 <select name="category" id="category" class="form-select" required>
@@ -52,14 +55,17 @@
                     {% endif %}
                 </select>
             </div>
+            <!-- Description input -->
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
                 <textarea name="description" id="description" class="form-control" rows="5">{{ description }}</textarea>
             </div>
+            <!-- Live link input -->
             <div class="mb-3">
                 <label class="form-label" for="live-link">Live link to project</label>
                 <input name="live_link" type="url" id="live-link" class="form-control" value="{{ live_link }}">
             </div>
+            <!-- Image input -->
             <div class="mb-3">
                 <label class="form-label" for="image">Project Image</label>
                 <br>
@@ -70,18 +76,23 @@
                     <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg">
                 </div>
             </div>
+            <!-- Error text -->
             <p id="error-text">File size exceeds the maximum allowed size (10MB)</p>
+            <!-- GitHub repo link input -->
             <div class="mb-3">
                 <label class="form-label" for="github_repo_link">GitHub repo link</label>
                 <input name="github_repo_link" type="url" id="github_repo_link" class="form-control" value="{{ github_repo_link }}" pattern="/https:\/\/github\.com\/([^/]+)\/([^/]+)$/">
             </div>
+            <!-- Error text -->
             <p id="error-text-github">Invalid GitHub repo link, readme.md will not be loaded. Correct format: https://github.com/username/repo-name</p>
+            <!-- Submit button -->
             <button type="submit" id="submit-btn" class="btn btn-outline-primary">Update</button>
             </fieldset>
         </form>
     </div>
 {% endblock %}
 
+<!-- Load page specific scripts -->
 {% block scripts %}
     <script src="{% static 'hub_main/js/validate_inputs.js' %}"></script>
 {% endblock %}

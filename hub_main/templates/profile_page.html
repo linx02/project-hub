@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/profile_page.css' %}">
 {% endblock %}
 
 {% block content %}
-
+<!-- Upper section of page -->
 <section>
     <div class="container" id="profile-container">
         <h1 id="your-profile-header">Your Profile</h1>
@@ -20,6 +20,7 @@
     </div>
 </section>
 
+<!-- Lower section with posts -->
 <section>
     <div class="container-fluid padding-content" id="profile-page-posts">
         <div class="grid">
@@ -39,6 +40,7 @@
                             </div>
                         </div>
                     </a>
+                    <!-- Delete and update post buttons -->
                     <div class="post-options">
                         <a class="post-option edit" href="{% url 'project_update' post.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
                         <button type="button" class="post-option delete" data-bs-toggle="modal" data-bs-target="#{{ post.slug }}">
@@ -46,7 +48,7 @@
                         </button>
                     </div>
                 </div>
-                <!-- Modal -->
+                <!-- Delete post modal -->
                 <div class="modal fade" id="{{ post.slug }}" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
@@ -75,6 +77,7 @@
 
 {% endblock %}
 
+<!-- Load page specific scripts -->
 {% block scripts %}
 
 	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>

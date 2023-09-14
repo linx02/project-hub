@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/project_details.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<p class="d-none" id="github_repo_link">{{ post.github_repo_link }}</p>
-
+<!-- Project content -->
 <section>
     <div class="container">
         <div class="grid">
             <div class="row">
+                <!-- Project image -->
                 <div class="col-md-8 col-12 project-image">
                     <img src="{{ post.image.url }}" alt="{{ post.image.title }}">
                 </div>
-
+                <!-- Project profile -->
                 <div class="col-md-4 col-12" id="project-profile-container">
                     <div id="profile-author-container">
                         <a href="{% url 'view_profile' post.author %}" style="color: inherit; text-decoration: none;">
@@ -25,7 +25,7 @@
                             <i class="fa-solid fa-circle-user fa-2xl"></i>
                         </a>
                     </div>
-
+                    <!-- Project profile cards -->
                     <div class="row row-cols-2">
                         {% for post in author_posts %}
                             <div class="col">
@@ -40,10 +40,12 @@
                 </div>
             </div>
         </div>
-
+        <!-- Title, description, likes and readme -->
         <div class="project-data">
             <div class="title-likes-container">
+                <!-- Title -->
                 <h1>{{ post.title }}</h1>
+                <!-- Likes -->
                 <div class="likes">
                     <p id="likes-number">{{ post.number_of_likes }}</p>
                     {% if user.is_authenticated %}
@@ -61,11 +63,14 @@
                     {% endif %}
                 </div>
             </div>
+            <!-- Author on smaller screen sizes -->
             <a class="author-small d-md-none" style="color: inherit; text-decoration: none; margin-bottom: 20px;" href="{% url 'view_profile' post.author %}">
                 <i class="fa-solid fa-circle-user fa-xl"></i>
                 <span>{{ post.author }}</span>
             </a>
+            <!-- Description -->
             <p>{{ post.description }}</p>
+            <!-- Links -->
             <div>
                 {% if post.live_link %}
                 <a href="{{ post.live_link }}" target="_blank" style="width: max-content; text-decoration: none;" class="project-link">View this project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -75,7 +80,7 @@
                 {% endif %}
             </div>
         </div>
-
+        <!-- Readme section -->
         <div class="readme-section">
             <h5 id="readme-header">Readme.md</h5>
             <div class="project-readme"></div>
@@ -84,17 +89,19 @@
 
 </section>
 
+<!-- Comment section -->
 <div class="container">
     <div class="comment-section">
         {% for comment in comments %}
             <div class="comment">
+                <!-- Comment author -->
                 <i class="fa-solid fa-circle-user fa-xl"></i>
                 <span class="comment-author"><strong>@{{ comment.user }}</strong></span>
                 <span class="comment-date"><em>{{ comment.created_on }}</em></span>
                 {% if comment.user == user %}
-
+                    <!-- Comment deletion button -->
                     <button style="border: none; background-color: inherit;" type="button" class="delete-comment-btn" data-bs-toggle="modal" data-bs-target="#comment{{ comment.id }}"><i class="fa-solid fa-x"></i></button>
-                    <!-- Modal -->
+                    <!-- Comment deletion modal -->
                     <div class="modal fade" id="comment{{ comment.id }}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -116,9 +123,11 @@
                         </div>
                     </div>
                 {% endif %}
+                <!-- Comment body -->
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
             </div>
         {% endfor %}
+        <!-- Post comment button -->
         <div id="post-comment">
             <form method="POST" action="{% url 'post_comment' post.id %}">
                 {% csrf_token %}
@@ -133,6 +142,7 @@
 
 {% endblock %}
 
+<!-- Load page specific scripts -->
 {% block scripts %}
 
 <script>

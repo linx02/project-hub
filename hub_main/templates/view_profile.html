@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% load static %}
-
+<!-- Load page specific styles -->
 {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'hub_main/css/view_profile.css' %}">
 {% endblock %}
 
 {% block content %}
 
+<!-- Upper section of page -->
 <section>
     <div class="container" id="profile-container">
         <div>
@@ -19,6 +20,7 @@
     </div>
 </section>
 
+<!-- Lower section with posts -->
 <section>
     <div class="container-fluid padding-content" id="profile-page-posts">
         <div class="grid">
@@ -46,7 +48,7 @@
 </section>
 
 {% endblock %}
-
+<!-- Load page specific scripts -->
 {% block scripts %}
 
 	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
