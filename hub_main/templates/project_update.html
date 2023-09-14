@@ -19,6 +19,7 @@
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
                 <select name="category" id="category" class="form-select" required>
+                    <option value="">...</option>
                     {% if category == 1 %}
                     <option value="1" selected>Project Portfolio 1</option>
                     {% else %}
@@ -59,10 +60,10 @@
                 <label class="form-label" for="image">Project Image</label>
                 <br>
                 <div style="display:flex; align-items: center; height: max-content;" id="file-upload">
-                    <input type="checkbox" class="btn-check" id="generate-link" autocomplete="off" name="generate_link">
+                    <input type="checkbox" class="btn-check" id="generate-link" name="generate_link">
                     <label class="btn btn-outline-primary" for="generate-link" style="white-space: nowrap;">Generate from link</label>
                     <em style="padding: 0px 10px;">Or</em>
-                    <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg" />
+                    <input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg">
                 </div>
             </div>
             <p id="error-text">File size exceeds the maximum allowed size (10MB)</p>
