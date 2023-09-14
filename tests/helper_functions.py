@@ -1,16 +1,11 @@
-from helper_functions import *
-
-base_url = "http://127.0.0.1:8000/"
-urls = {
-    'login' : f'{base_url}members/login_user',
-    'signup' : f'{base_url}members/register_user'
-}
+import selenium
+from selenium.webdriver.common.by import By
 
 testuser_credentials = ['testuser', 'Tst123Tst!']
 
 def login(selenium_driver):
     
-    selenium_driver.get(urls['login'])
+    selenium_driver.get('http://127.0.0.1:8000/members/login_user')
     username_input = selenium_driver.find_element(by=By.ID, value='username')
     password_input = selenium_driver.find_element(by=By.ID, value='password')
 
@@ -20,6 +15,12 @@ def login(selenium_driver):
     login_button = selenium_driver.find_element(by=By.ID, value='login-submit')
     login_button.click()
 
+def logout(selenium_driver):
+    try:
+        logout_button = selenium_driver.find_element(by=By.LINK_TEXT, value='Logout')
+        logout_button.click()
+    except selenium.common.exceptions.NoSuchElementException:
+        return
 
 def redirect_home_confirm(selenium_driver):
     try:
@@ -27,21 +28,3 @@ def redirect_home_confirm(selenium_driver):
         return True
     except selenium.common.exceptions.NoSuchElementException:
         return False
-
-def test_access_signup_page_logged_in(selenium_driver):
-    # Arrange
-    login(selenium_driver)
-
-    # Act
-    selenium_driver.get(urls['signup'])
-
-    # Assert
-    assert redirect_home_confirm(selenium_driver)
-
-
-def test_access_login_page_logged_in(selenium_driver):
-    # Act
-    selenium_driver.get(urls['login'])
-
-    # Assert
-    assert redirect_home_confirm(selenium_driver)

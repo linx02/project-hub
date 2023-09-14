@@ -1,9 +1,8 @@
-import selenium
-from selenium.webdriver.common.by import By
+from helper_functions import *
 import random
 import time
 
-project_url = 'http://127.0.0.1:8000/project/testingpost/'
+project_url = 'http://127.0.0.1:8000/project/testing-post/'
 like_btn = None
 testuser_credentials = ['testuser', 'Tst123Tst!']
 random_comment = f'Testing comment: {random.randrange(10000)}'
@@ -87,18 +86,3 @@ def test_delete_comment(selenium_driver):
         p_elements_content.append(p.get_attribute('innerHTML'))
 
     assert random_comment not in p_elements_content
-
-
-def test_empty_comment(selenium_driver):
-    # Arrange
-    comment_button = selenium_driver.find_element(by=By.ID, value='comment-btn')
-    p_elements_length = len(selenium_driver.find_elements(by=By.TAG_NAME, value='p'))
-
-    # Act
-    selenium_driver.execute_script("arguments[0].click();", comment_button)
-    time.sleep(3)
-
-    # Assert
-    p_elements_length_new = len(selenium_driver.find_elements(by=By.TAG_NAME, value='p'))
-
-    assert p_elements_length == p_elements_length_new

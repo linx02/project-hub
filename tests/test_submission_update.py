@@ -1,7 +1,6 @@
-import selenium
-from selenium.webdriver.common.by import By
+from helper_functions import *
 
-test_post_id = 25
+test_post_id = 42
 submission_url = 'http://127.0.0.1:8000/project_submission/'
 update_url = f'http://127.0.0.1:8000/project_update/{test_post_id}/'
 testuser_credentials = ['testuser', 'Tst123Tst!']

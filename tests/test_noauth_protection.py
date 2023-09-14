@@ -1,10 +1,9 @@
-import selenium
-from selenium.webdriver.common.by import By
+from helper_functions import *
 
 base_url = "http://127.0.0.1:8000/"
-test_post_id = 14
-test_post_slug = 'testingpost'
-test_post_comment = 12
+test_post_id = 42
+test_post_slug = 'testing-post'
+test_post_comment = 9
 urls = {
     'project_details' : f'{base_url}project/{test_post_slug}/',
     'submission' : f'{base_url}project_submission/',

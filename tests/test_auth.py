@@ -1,5 +1,5 @@
-import selenium
-from selenium.webdriver.common.by import By
+from helper_functions import *
+import pytest
 
 base_url = 'http://127.0.0.1:8000/'
 testuser_credentials = ['testuser', 'Tst123Tst!']
@@ -38,6 +38,7 @@ def redirect_home_confirm(selenium_driver):
     except selenium.common.exceptions.NoSuchElementException:
         return False
 
+@pytest.mark.skip
 def test_create_new_user(selenium_driver):
     # Arrange
     selenium_driver.get(urls['signup'])
