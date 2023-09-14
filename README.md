@@ -330,115 +330,7 @@ __Manual testing__
 
 _Tests done with DEBUG = False in settings.py_
 
-___Case:___ Accessing authorization required links without logging in:
-
-- Link: http://127.0.0.1:8000/profile_page/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Check user authenticated in associated view
-
-- Link: http://127.0.0.1:8000/project_submission/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Project submission page loaded
-
-    Resolved by: Check user authenticated in associated view
-
-- Link: http://127.0.0.1:8000/project_update/14/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Project update page loaded
-
-    Resolved by: Check user authenticated and post author in associated view
-
-- Link: http://127.0.0.1:8000/delete_post/14/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Check user authenticated and post author in associated view
-
-- Link: http://127.0.0.1:8000/post_comment/14/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Check user authenticated in associated view
-
-- Link: http://127.0.0.1:8000/like_post/14/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Check user authenticated in associated view
-
-- Link: http://127.0.0.1:8000/delete_comment/10/14/
-
-    Expected result: Redirect to home page
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Check user authenticated and comment owner in associated view
-
-___Case:___ Inserting invalid or no data during project submission
-
-- Test: Upload file larger than 10MB
-
-    Expected result: Error message
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Write js script to validate inputs.
-
-- Test: Upload file + toggle generate from link
-
-    Expected result: Error message / Toggle not available when file uploaded
-    
-    Actual result: Post uploaded using image generated from link
-
-    Resolved by: Write js script to validate inputs.
-
-- Test: Post using a non github repo link in field:
-
-    Expected result: Error message
-    
-    Actual result: Post uploaded successfully
-
-    Resolved by: Write js script to validate inputs.
-
-___Case:___ Inserting invalid or no data when updating existing post
-
-- Test: Upload file larger than 10MB
-
-    Expected result: Error message
-    
-    Actual result: Server Error (500)
-
-    Resolved by: Write js script to validate inputs.
-
-- Test: Upload file + toggle generate from link
-
-    Expected result: Error message / Toggle not available when file uploaded
-    
-    Actual result: Post uploaded using image generated from link
-
-    Resolved by: Write js script to validate inputs.
-
-- Test: Post using a non github repo link in field:
-
-    Expected result: Error message
-    
-    Actual result: Post uploaded successfully
-
-    Resolved by: Write js script to validate inputs.
+___Case: Accessing authorization required links without logging in:___
 
 | Link                                      | Expected Result          | Actual Result                  | Resolved by                               |
 |-------------------------------------------|--------------------------|--------------------------------|------------------------------------------|
@@ -450,6 +342,7 @@ ___Case:___ Inserting invalid or no data when updating existing post
 | [http://127.0.0.1:8000/like_post/14/](http://127.0.0.1:8000/like_post/14/) | Redirect to home page   | Server Error (500)            | Check user authenticated in associated view |
 | [http://127.0.0.1:8000/delete_comment/10/14/](http://127.0.0.1:8000/delete_comment/10/14/) | Redirect to home page   | Server Error (500)            | Check user authenticated and comment owner in associated view |
 
+___Case: Inserting invalid or no data during project submission:___
 
 | Test                                          | Expected Result                  | Actual Result                                       | Resolved by                               |
 |-----------------------------------------------|----------------------------------|-----------------------------------------------------|------------------------------------------|
@@ -457,6 +350,7 @@ ___Case:___ Inserting invalid or no data when updating existing post
 | Upload file + toggle generate from link       | Error message / Toggle not available when file uploaded | Post uploaded using image generated from link | Write js script to validate inputs       |
 | Post using a non-GitHub repo link in field    | Error message                    | Post uploaded successfully                           | Write js script to validate inputs       |
 
+___Case: Inserting invalid or no data during update project:___
 
 | Test                                          | Expected Result                  | Actual Result                                       | Resolved by                               |
 |-----------------------------------------------|----------------------------------|-----------------------------------------------------|------------------------------------------|
