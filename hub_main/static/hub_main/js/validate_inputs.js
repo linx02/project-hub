@@ -46,4 +46,16 @@ document.addEventListener('DOMContentLoaded', function(){
             errorTextGithub.style.display = 'none';
         }
     })
+
+    let liveLinkInput = document.getElementById('live-link');
+    const generateFromLinkBtn = document.getElementById('generate-link');
+    generateFromLinkBtn.disabled = true;
+
+    liveLinkInput.addEventListener('change', function(){
+        if (liveLinkInput.value.length > 0){
+            generateFromLinkBtn.disabled = false;
+        } else {
+            generateFromLinkBtn.disabled = true;
+        }
+    })
 })

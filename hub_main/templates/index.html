@@ -17,9 +17,9 @@
 					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg" style="margin-bottom: 10px;">Submit a project</a><br>
 					<em><a href="{% url 'profile_page' %}">Your profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a></em>
 				{% else %}
-					<h1 style="display: inline;"><div id="header-word" style="display: inline-block;">Share</div> </h1><h1 style="display: inline;">your projects<br>with the community</h1>
+					<h1 style="display: inline;"><span id="header-word" style="display: inline-block;">Share</span> </h1><h1 style="display: inline;">your projects<br>with the community</h1>
 					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg" style="display:inline-block; margin-top: 20px;">Sign Up</a>
-					<em><p>Already have an account?</p></em>
+					<p><em>Already have an account?</em></p>
 					<a href="{% url 'login' %}">Login</a>
 				{% endif %}
 			</div>
@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-12" id="big-hof">
 					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="{{ hof_post_1.image }}" class="my-card-img" alt="...">
+							<img src="{{ hof_post_1.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_1.title }}</h5>
 								<div class="my-card-author">
@@ -53,7 +53,7 @@
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_2.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="{{ hof_post_2.image }}" class="my-card-img" alt="...">
+							<img src="{{ hof_post_2.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_2.title }}</h5>
 								<div class="my-card-author">
@@ -68,7 +68,7 @@
                 <div class="col-md-3 col-6">
 					<a href="{% url 'project_details' hof_post_3.slug %}" style="color:inherit;">
 						<div class="my-card hall-of-fame-card">
-							<img src="{{ hof_post_3.image }}" class="my-card-img" alt="...">
+							<img src="{{ hof_post_3.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
 								<h5 class="my-card-title">{{ hof_post_3.title }}</h5>
 								<div class="my-card-author">
@@ -95,7 +95,7 @@
                     <div class="col-md-3 col-6 recently-added-card">
                         <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
                             <div class="my-card">
-                                <img src="{{ post.image }}" class="my-card-img" alt="...">
+                                <img src="{{ post.image }}" class="my-card-img" alt="project image">
                                 <div class="my-card-body">
                                     <h5 class="my-card-title">{{ post.title }}</h5>
 									<div class="my-card-author">
@@ -121,7 +121,7 @@
         {% for category in categories %}
             <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.slug }}" aria-expanded="false" aria-controls="collapseOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ category.slug }}" aria-expanded="false">
                 <strong>{{ category.name }}</strong>
                 </button>
             </h2>

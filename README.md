@@ -504,14 +504,14 @@ Note that you will have to setup your own database and API connections using the
 1. Create a file name "env.py" in the projects root directory.
 2. Copy and paste this code in the env.py file and replace values with your own:
 
-        ```python
-        import os
+```python
+import os
 
-        os.environ["DATABASE_URL"]=YOUR_DATABASE_URL
-        os.environ["SECRET_KEY"]=YOUR_SECRET_KEY
-        os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
-        os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
-        ```
+os.environ["DATABASE_URL"]=YOUR_DATABASE_URL
+os.environ["SECRET_KEY"]=YOUR_SECRET_KEY
+os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
+os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
+```
 
 ## Credits
 
