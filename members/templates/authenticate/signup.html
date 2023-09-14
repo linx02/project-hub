@@ -7,14 +7,17 @@
 {% endblock %}
 
 {% block content %}
+<!-- Sign up section -->
 <section>
     <div class="container" id="login-container">
+        <!-- Sign up header -->
         <h3>Sign Up</h3>
+        <!-- Sign up form -->
         <form action="{% url 'register' %}" method="POST">
             {% csrf_token %}
 
             {{ form }}
-
+            <!-- Login link -->
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 20px; margin-top: 20px;">
                 <button type="submit" class="btn btn-outline-primary" id="signup-submit">Sign Up</button>
                 <em style="padding: 5px 0px; color: gray;">Already have an account?</em>
@@ -23,7 +26,7 @@
         </form>
     </div>
 </section>
-
+<!-- Add bootstrap classes to form elements -->
 <script>
     document.addEventListener('DOMContentLoaded', function(){
         const userInput = document.getElementById('id_username');
