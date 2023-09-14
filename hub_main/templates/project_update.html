@@ -57,6 +57,10 @@
                 <textarea name="description" id="description" class="form-control" rows="5">{{ description }}</textarea>
             </div>
             <div class="mb-3">
+                <label class="form-label" for="live-link">Live link to project</label>
+                <input name="live_link" type="url" id="live-link" class="form-control" value="{{ live_link }}">
+            </div>
+            <div class="mb-3">
                 <label class="form-label" for="image">Project Image</label>
                 <br>
                 <div style="display:flex; align-items: center; height: max-content;" id="file-upload">
@@ -67,10 +71,6 @@
                 </div>
             </div>
             <p id="error-text">File size exceeds the maximum allowed size (10MB)</p>
-            <div class="mb-3">
-                <label class="form-label" for="live-link">Live link to project</label>
-                <input name="live_link" type="url" id="live-link" class="form-control" value="{{ live_link }}">
-            </div>
             <div class="mb-3">
                 <label class="form-label" for="github_repo_link">GitHub repo link</label>
                 <input name="github_repo_link" type="url" id="github_repo_link" class="form-control" value="{{ github_repo_link }}" pattern="/https:\/\/github\.com\/([^/]+)\/([^/]+)$/">

@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    max-height: 200px;
 }
 
 .my-card-body {
@@ -100,16 +101,14 @@ h1, h2, h3, h4, h5 {
     -webkit-box-orient: vertical;
     white-space: normal;
     font-size: 1vw;
-    margin-bottom: 1vw;
     margin-left: 0.2vw;
-    max-height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .my-card-author {
     font-size: 1vw;
-    padding: 5px 0px;
+    padding: 10px 0px;
 }
 
 footer {

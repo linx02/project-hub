@@ -10,6 +10,7 @@
     height: 60vh;
     object-fit: contain;
     border-radius: 10px;
+    
 }
 
 .readme-section {
@@ -121,11 +122,14 @@
 .author-card {
     height: 20vh;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .author-card img {
     height: 100%;
-    width: fit-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project-link {
