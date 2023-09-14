@@ -2,7 +2,7 @@
 
 Project Hub is a sharing platform mainly aimed at students of Code Institute looking to share their school projects and check out other students projects, but is open to everyone and all users are welcome.
 
-![Device Mockups](media/mockups.png)
+![Device Mockups](media/devicemockups.png)
 ## Features
 
 <a name="navbar"></a>
@@ -23,10 +23,10 @@ Featured on all pages across the site.
 
 Adapts to if user is authenticated or not (Disables Project submission and profile links and switches the Login/Logout link)
 
-__Navbar for authenticated users__:
+__Navbar for non-authenticated users__:
 
 ![Navbar non auth](media/navbar.png)
-__Navbar for non-authenticated users__:
+__Navbar for authenticated users__:
 
 ![Navbar auth](media/navbarauth.png)
 
@@ -37,7 +37,7 @@ Provide users with an easy and straight-forward way to navigate the site
 ### __Footer__
 
 Featured on all pages across the site.
-The footer contain links to my personal GitHub account aswell as my LinkedIn account.
+The footer contains links to my personal GitHub account aswell as my LinkedIn account.
 
 ![Footer](media/footer.png)
 
@@ -48,7 +48,7 @@ Provide users with a way to connect with me and check out my GitHub profile.
 ### __Project cards__
 
 The project cards are used in various places across the page.
-They are hyperlinked to the page for that specific project and contains an image of the project if provided during the project submission(else a default image not found image) aswell the title and description provided during project submission
+They are hyperlinked to the page for that specific project and contains an image of the project if provided during project submission(else a default image not found image) aswell as the title and description provided during project submission
 
 ![Project card](media/projectcard.png)
 
@@ -98,12 +98,12 @@ Provide users with a fast way to see which posts are new on the site.
 
 __Browse by Category section__
  
-The Browse by Category section features a bootstrap accordion items for all the categories on the site. Inside each accordion item is a link to the browse page for that specific category. Each accordion item for Code Institute projects also has the description for that project taken from the Code Institute assessment criteria sections.
+The Browse by Category section features a bootstrap accordion with items for all the categories on the site. Inside each accordion item is a link to the browse page for that specific category. Each accordion item for Code Institute projects also has the description for that project taken from the Code Institute assessment criteria sections.
 
 ![Browse by Category section](media/browsebycategory.png)
 
 ___Purpose of feature:___
-Provide users with an fast way to browse projects by category.
+Provide users with a fast way to browse projects by category.
 
 <a name="browse-page"></a>
 ### __Browse page__
@@ -118,7 +118,7 @@ __The Browse page consists of:__
 
 __Page header__
 
-The page header displays the project category which the user is currently browsing
+The page header displays the project category which the user is currently browsing.
 
 ___Purpose of feature:___
 Provide users with a highly visible way to know which category is currently being browsed.
@@ -157,7 +157,7 @@ The content which the user is able to post is:
 - Live link to project
 - GitHub Repo link
 
-_Additional_: The project image field can either be provided with an image from the users local computer or the "Generate from link" button can be toggled which will then on form submission generate a screenshot from the "live link to project" provided and use as the project image.
+_Additional_: The project image field can either be provided with an image from the users local machine or the "Generate from link" button can be toggled which will then on form submission generate a screenshot from the "live link to project" provided and use as the project image.
 
 ___Purpose of feature:___
 Provide users with a way to submit their projects to the site for others to see.
@@ -224,7 +224,7 @@ Provide users with a way to get a quick overview of their account.
 
 __Profile posts section__
 
-The profile posts section contains [Project Cards](#project-cards) displaying the posts which has been uploaded by the user. Below each card are buttons allowing the user to either delete the post or update the posts info through the [Project update page](#project-update-page).
+The profile posts section contains [Project Cards](#project-cards) displaying the posts which has been uploaded by the user. Below each card are buttons allowing the user to either delete the post or update the posts info.
 
 _Additional_: The delete button displays a modal requiring the user to confirm the deletion of the post.
 
@@ -243,7 +243,7 @@ __The Profile page consists of:__
     - Profile info section
     - Profile posts section
 
-The profile page is a copy of the [Your profile page](#your-profile-page) but without the "Your profile" header and abillities to update or delete posts.
+The profile page is a copy of the [Your profile page](#your-profile-page) but without the "Your profile" header and options to update or delete posts.
 
 The purpose of this page is for users to view other profiles than their own.
 
@@ -270,7 +270,7 @@ __Project image section__
 The project image section displays the image provided during the project submission or a default image if no image was provided.
 
 ___Purpose of feature:___
-Provide users with a way to see specific users and their posts.
+Provide users with an image of the project.
 
 __Profile section__
 
@@ -295,7 +295,7 @@ __Project links__
 The project links (Live link to project and GitHub repo link) are displayed below the project info section and provide the user a way to check out the project.
 
 ___Purpose of feature:___
-Provide users with a way to check out the project and it's GitHub repo.
+Provide users with a way to check out the project and it's associated GitHub repository.
 
 __Readme section__
 
@@ -457,20 +457,21 @@ Unit test files:
     4. test_like_comment.py
         - Tests like / unlike functionality
         - Tests comment / delete comment functionality
-    5. test_submission_update
-        - ...
-        - ...
+    5. test_submission_update.py
+        - Tests invalid inputs in submission form
+        - Tests invalid inputs in update project form
 
 
 ## Deployment
 
 This project was deployed to Heroku using these steps:
 
-    1. ...
-    2. ...
-    3. ...
-    4. ...
-    5. ...
+    1. Fork or clone this repository
+    2. Create a new Heroku app
+    3. Set the buildpacks to Python
+    4. Set the config vars for your database connection and api keys
+    4. Link the Heroku app to the repository
+    5. Click on deploy
 
 ## Run Locally
 
@@ -498,7 +499,19 @@ Start the server
   python3 manage.py runserver
 ```
 
-Note that you will have to setup your own database and API connections.
+Note that you will have to setup your own database and API connections using these steps:
+
+    1. Create a file name "env.py" in the projects root directory.
+    2. Copy and paste this code in the env.py file and replace values with your own:
+        ```python
+        import os
+
+        os.environ["DATABASE_URL"]=YOUR_DATABASE_URL
+        os.environ["SECRET_KEY"]=YOUR_SECRET_KEY
+        os.environ["CLOUDINARY_SECRET"]=YOUR_CLOUDINARY_SECRET
+        os.environ["THUMIO_AUTH"]=YOUR_THUMIO_AUTH_KEY
+        ```
+
 ## Credits
 
 __API's used__:
@@ -515,6 +528,10 @@ __Libraries and frameworks__:
 
 [GreenSock's GSAP](https://greensock.com/): For animations.
 
+[PyTest](https://docs.pytest.org/en/7.4.x/): For testing.
+
+[Selenium](https://www.selenium.dev/): For testing.
+
 __Data storing__:
 
 [PostgreSQL](https://www.postgresql.org/): Database management system used.
@@ -525,4 +542,6 @@ __Media__:
 
 [Freepik](https://www.freepik.com/): For svg in the hero section.
 
-[Haikei](https://haikei.app/): For background svg on the [home page](#home-page)
+[Haikei](https://haikei.app/): For background svg on the [home page](#home-page).
+
+[FontAwesome](https://fontawesome.com/): For icons.
