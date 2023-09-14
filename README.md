@@ -501,8 +501,9 @@ Start the server
 
 Note that you will have to setup your own database and API connections using these steps:
 
-    1. Create a file name "env.py" in the projects root directory.
-    2. Copy and paste this code in the env.py file and replace values with your own:
+1. Create a file name "env.py" in the projects root directory.
+2. Copy and paste this code in the env.py file and replace values with your own:
+
         ```python
         import os
 
