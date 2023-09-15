@@ -4,20 +4,7 @@ import time
 
 project_url = 'http://127.0.0.1:8000/project/testing-post/'
 like_btn = None
-testuser_credentials = ['testuser', 'Tst123Tst!']
 random_comment = f'Testing comment: {random.randrange(10000)}'
-
-def login(selenium_driver):
-    
-    selenium_driver.get('http://127.0.0.1:8000/members/login_user')
-    username_input = selenium_driver.find_element(by=By.ID, value='username')
-    password_input = selenium_driver.find_element(by=By.ID, value='password')
-
-    username_input.send_keys(testuser_credentials[0])
-    password_input.send_keys(testuser_credentials[1])
-
-    login_button = selenium_driver.find_element(by=By.ID, value='login-submit')
-    login_button.click()
 
 def test_like(selenium_driver):
     # Arrange

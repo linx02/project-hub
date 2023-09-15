@@ -17,13 +17,6 @@ urls = {
     'profile' : f'{base_url}profile/linx/',
 }
 
-def redirect_home_confirm(selenium_driver):
-    try:
-        selenium_driver.find_element(by=By.ID, value='hero-svg')
-        return True
-    except selenium.common.exceptions.NoSuchElementException:
-        return False
-
 def test_noauth_like(selenium_driver):
     # Act
     selenium_driver.get(urls['like'])

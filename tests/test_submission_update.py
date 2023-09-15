@@ -3,19 +3,6 @@ from helper_functions import *
 test_post_id = 42
 submission_url = 'http://127.0.0.1:8000/project_submission/'
 update_url = f'http://127.0.0.1:8000/project_update/{test_post_id}/'
-testuser_credentials = ['testuser', 'Tst123Tst!']
-
-def login(selenium_driver):
-    
-    selenium_driver.get('http://127.0.0.1:8000/members/login_user')
-    username_input = selenium_driver.find_element(by=By.ID, value='username')
-    password_input = selenium_driver.find_element(by=By.ID, value='password')
-
-    username_input.send_keys(testuser_credentials[0])
-    password_input.send_keys(testuser_credentials[1])
-
-    login_button = selenium_driver.find_element(by=By.ID, value='login-submit')
-    login_button.click()
 
 def test_submission_invalid_github_link(selenium_driver):
 

@@ -160,5 +160,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 	<script src="{% static 'hub_main/js/home_animations.js' %}"></script>
 	<script src="{% static 'hub_main/js/card_animations.js' %}"></script>
+	{% if not user.is_authenticated %}
+		<script src="{% static 'hub_main/js/word_animation.js' %}"></script>
+	{% endif %}
 
 {% endblock %}
