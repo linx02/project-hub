@@ -19,9 +19,9 @@
             Sort by
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'a-z' %}">A-Z</a></li>
-                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'recently-added' %}">Recently added</a></li>
-                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'top-rated' %}">Top Rated</a></li>
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'a-z' %}" aria-label="Sort alphabetically">A-Z</a></li>
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'recently-added' %}" aria-label="Sort by recently added">Recently added</a></li>
+                <li><a class="dropdown-item" href="{% url 'browse_project' category.id 'top-rated' %}" aria-label="Sort by top rated">Top Rated</a></li>
             </ul>
         </div>
     </div>
@@ -32,11 +32,11 @@
                 {% for post in posts %}
                 <!-- Project card -->
                 <div class="col-md-3 col-6">
-                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;" aria-label="View project">
                         <div class="my-card">
                             <img src="{{ post.image }}" class="my-card-img" alt="project image">
                             <div class="my-card-body">
-                                <h5 class="my-card-title">{{ post.title }}</h5>
+                                <h2 class="my-card-title">{{ post.title }}</h2>
                                 <div class="my-card-author">
                                     <i class="fa-solid fa-circle-user fa-2xl"></i>
                                     <span>{{ post.author }}</span>
@@ -52,13 +52,13 @@
     </div>
     <div style="text-align: center; margin-top: 10vh;">
         {% if posts.has_previous %}
-            <a href="?page=1">&laquo </a>
-            <a href="?page={{ posts.previous_page_number }}">Previous</a>
+            <a href="?page=1" aria-label="First page">&laquo </a>
+            <a href="?page={{ posts.previous_page_number }}" aria-label="Previous page">Previous</a>
         {% endif %}
         <span style="padding: 0px 10px;">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
         {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}">Next </a>
-            <a href="?page={{ posts.paginator.num_pages }}">&raquo</a>
+            <a href="?page={{ posts.next_page_number }}" aria-label="Next page">Next </a>
+            <a href="?page={{ posts.paginator.num_pages }}" aria-label="Last page">&raquo</a>
         {% endif %}
     </div>
 </section>

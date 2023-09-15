@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
               <!-- Logo -->
-              <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'hub_main/images/logo.png' %}" height="30" alt="logo"></a>
+              <a class="navbar-brand" href="{% url 'home' %}" aria-label="Home"><img src="{% static 'hub_main/images/logo.png' %}" height="30" alt="logo"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,46 +32,46 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'home' %}" aria-label="Home">Home</a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Browse">
                       Browse
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 1 'a-z' %}">Project Portfolio 1</a></li>
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 2 'a-z' %}">Project Portfolio 2</a></li>
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 3 'a-z' %}">Project Portfolio 3</a></li>
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 4 'a-z' %}">Project Portfolio 4</a></li>
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 5 'a-z' %}">Project Portfolio 5</a></li>
-                      <li><a class="dropdown-item" href="{% url 'browse_project' 6 'a-z' %}">Other</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 1 'a-z' %}" aria-label="Project portfolio 1">Project Portfolio 1</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 2 'a-z' %}" aria-label="Project portfolio 2">Project Portfolio 2</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 3 'a-z' %}" aria-label="Project portfolio 3">Project Portfolio 3</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 4 'a-z' %}" aria-label="Project portfolio 4">Project Portfolio 4</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 5 'a-z' %}" aria-label="Project portfolio 5">Project Portfolio 5</a></li>
+                      <li><a class="dropdown-item" href="{% url 'browse_project' 6 'a-z' %}" aria-label="Other">Other</a></li>
                     </ul>
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'project_submission' %}">Submit a project</a>
+                      <a class="nav-link" href="{% url 'project_submission' %}" aria-label="Submit a project">Submit a project</a>
                     </li>
                   {% else %}
                     <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Sign up or login to submit a project">
-                      <a class="nav-link disabled" href="{% url 'project_submission' %}">Submit a project</a>
+                      <a class="nav-link disabled" href="{% url 'project_submission' %}" aria-label="Submit a project">Submit a project</a>
                     </li>
                   {% endif %}
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                      <a class="nav-link" href="{% url 'logout' %}" aria-label="Logout">Logout</a>
                     </li>
                   {% else %}
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'login' %}">Login</a>
+                      <a class="nav-link" href="{% url 'login' %}" aria-label="Login">Login</a>
                     </li>
                   {% endif %}
                   {% if user.is_authenticated %}
                   <li class="nav-link">
-                    <a href="{% url 'profile_page' %}"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+                    <a href="{% url 'profile_page' %}" aria-label="Profile page"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
                   </li>
                   {% else %}
                   <li class="nav-link disabled">
-                    <a href="#"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+                    <a href="#" aria-label="Profile page"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
                   </li>
                   {% endif %}
                 </ul>
@@ -102,8 +102,8 @@
 <footer>
     <h3>Check out my socials!</h3>
     <div>
-      <a href="https://www.linkedin.com/in/linus-elvius-83385b1b3" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/linx02" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+      <a href="https://www.linkedin.com/in/linus-elvius-83385b1b3" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/linx02" target="_blank" aria-label="GitHub"><i class="fa-brands fa-square-github"></i></a>
     </div>
 </footer>
 

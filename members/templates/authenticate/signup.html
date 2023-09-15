@@ -19,9 +19,9 @@
             {{ form }}
             <!-- Login link -->
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 20px; margin-top: 20px;">
-                <button type="submit" class="btn btn-outline-primary" id="signup-submit">Sign Up</button>
-                <em style="padding: 5px 0px; color: gray;">Already have an account?</em>
-                <a href="{% url 'login' %}">Login</a>
+                <button type="submit" class="btn btn-primary" id="signup-submit">Sign Up</button>
+                <em style="padding: 5px 0px;">Already have an account?</em>
+                <a href="{% url 'login' %}" aria-label="Login page">Login</a>
             </div>
         </form>
     </div>
@@ -32,13 +32,11 @@
         const userInput = document.getElementById('id_username');
         const passInput1 = document.getElementById('id_password1');
         const passInput2 = document.getElementById('id_password2');
-        const submitBtn = document.querySelector('input[type="submit"]');
         const listItems = document.querySelectorAll('li');
 
         userInput.classList.add('form-control');
         passInput1.classList.add('form-control');
         passInput2.classList.add('form-control');
-        submitBtn.classList.add('btn', 'btn-primary');
 
         for(li of listItems){
             li.classList.add('list-group-item');

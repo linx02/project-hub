@@ -47,6 +47,21 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Override bootstrap buttons */
+.btn-primary {
+    --bs-btn-color: #000;
+    --bs-btn-bg: var(--un-blue);
+    --bs-btn-border-color: var(--un-blue);
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: var(--un-blue);
+    --bs-btn-hover-border-color: var(--un-blue);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: var(--un-blue);
+    --bs-btn-active-border-color: var(--un-blue);
+    --bs-btn-disabled-bg: var(--un-blue);
+    --bs-btn-disabled-border-color: var(--un-blue);
+}
+
 .btn-outline-primary {
     --bs-btn-color: var(--un-blue);
     --bs-btn-border-color: var(--un-blue);

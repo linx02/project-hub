@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
+
 def login_user(request):
 
     # Redirect home if user is already authenticated
@@ -29,6 +30,7 @@ def login_user(request):
         # Render login page
         return render(request, 'authenticate/login.html', {})
 
+
 def logout_user(request):
 
     # Logout user and provide feedback
@@ -36,12 +38,13 @@ def logout_user(request):
     messages.success(request, 'You have been logged out')
     return redirect('home')
 
+
 def register_user(request):
 
     # Redirect home if user is already authenticated
     if request.user.is_authenticated:
         return redirect('home')
-    
+
     # Runs on signup
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -63,4 +66,4 @@ def register_user(request):
         # Render sign up page and pass form
         form = UserCreationForm()
 
-    return render(request, 'authenticate/signup.html', {'form':form})
+    return render(request, 'authenticate/signup.html', {'form': form})

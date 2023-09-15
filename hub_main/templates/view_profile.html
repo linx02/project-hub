@@ -15,8 +15,8 @@
             <i class="fa-solid fa-circle-user fa-2xl"></i>
             <span>{{ profile }}</span>
         </div>
-        <h3>Number of posts: {{ post_count }}</h3>
-        <h3>Registered on: {{ profile.date_joined|date:"F j, Y" }}</h3>
+        <h2>Number of posts: {{ post_count }}</h2>
+        <h2>Registered on: {{ profile.date_joined|date:"F j, Y" }}</h2>
     </div>
 </section>
 
@@ -27,11 +27,11 @@
             <div class="row">
                 {% for post in posts %}
                 <div class="col-md-3 col-6 profile-post-card">
-                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                    <a href="{% url 'project_details' post.slug %}" style="color:inherit;" aria-label="View project">
                         <div class="my-card">
                             <img src="{{ post.image }}" class="my-card-img" alt="...">
                             <div class="my-card-body">
-                                <h5 class="my-card-title">{{ post.title }}</h5>
+                                <h3 class="my-card-title">{{ post.title }}</h3>
                                 <div class="my-card-author">
                                     <i class="fa-solid fa-circle-user fa-2xl"></i>
                                     <span>{{ post.author }}</span>

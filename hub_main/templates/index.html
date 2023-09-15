@@ -17,13 +17,13 @@
 			<div id="hero-cta">
 				{% if user.is_authenticated %}
 					<h1>Welcome back, <br>{{ user }}!</h1>
-					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg" style="margin-bottom: 10px;">Submit a project</a><br>
-					<em><a href="{% url 'profile_page' %}">Your profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a></em>
+					<a href="{% url 'project_submission' %}" class="btn btn-outline-primary btn-lg" style="margin-bottom: 10px;" aria-label="Submit a project">Submit a project</a><br>
+					<em><a href="{% url 'profile_page' %}" aria-label="Your profile page">Your profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a></em>
 				{% else %}
 					<h1 style="display: inline;"><span id="header-word" style="display: inline-block;">Share</span> </h1><h1 style="display: inline;">your projects<br>with the community</h1>
-					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg" style="display:inline-block; margin-top: 20px;">Sign Up</a>
+					<a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg" style="display:inline-block; margin-top: 20px;" aria-label="Sign up">Sign Up</a>
 					<p><em>Already have an account?</em></p>
-					<a href="{% url 'login' %}">Login</a>
+					<a href="{% url 'login' %}" aria-label="Login">Login</a>
 				{% endif %}
 			</div>
 			<!-- Hero svg -->
@@ -42,11 +42,11 @@
             <div class="row">
 				<!-- Hall of fame post 1 (big) -->
                 <div class="col-md-6 col-12" id="big-hof">
-					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;">
+					<a href="{% url 'project_details' hof_post_1.slug %}" style="color:inherit;" aria-label="View project">
 						<div class="my-card hall-of-fame-card">
 							<img src="{{ hof_post_1.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
-								<h5 class="my-card-title">{{ hof_post_1.title }}</h5>
+								<h3 class="my-card-title">{{ hof_post_1.title }}</h3>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_1.author }}</span>
@@ -58,11 +58,11 @@
                 </div>
 				<!-- Hall of fame post 2 -->
                 <div class="col-md-3 col-6">
-					<a href="{% url 'project_details' hof_post_2.slug %}" style="color:inherit;">
+					<a href="{% url 'project_details' hof_post_2.slug %}" style="color:inherit;" aria-label="View project">
 						<div class="my-card hall-of-fame-card">
 							<img src="{{ hof_post_2.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
-								<h5 class="my-card-title">{{ hof_post_2.title }}</h5>
+								<h3 class="my-card-title">{{ hof_post_2.title }}</h3>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_2.author }}</span>
@@ -74,11 +74,11 @@
                 </div>
 				<!-- Hall of fame post 3 -->
                 <div class="col-md-3 col-6">
-					<a href="{% url 'project_details' hof_post_3.slug %}" style="color:inherit;">
+					<a href="{% url 'project_details' hof_post_3.slug %}" style="color:inherit;" aria-label="View project">
 						<div class="my-card hall-of-fame-card">
 							<img src="{{ hof_post_3.image }}" class="my-card-img" alt="project image">
 							<div class="my-card-body">
-								<h5 class="my-card-title">{{ hof_post_3.title }}</h5>
+								<h3 class="my-card-title">{{ hof_post_3.title }}</h3>
 								<div class="my-card-author">
 									<i class="fa-solid fa-circle-user fa-2xl"></i>
 									<span>{{ hof_post_3.author }}</span>
@@ -104,11 +104,11 @@
                     {% for post in recent_posts %}
 					<!-- Recently added card -->
                     <div class="col-md-3 col-6 recently-added-card">
-                        <a href="{% url 'project_details' post.slug %}" style="color:inherit;">
+                        <a href="{% url 'project_details' post.slug %}" style="color:inherit;" aria-label="View project">
                             <div class="my-card">
                                 <img src="{{ post.image }}" class="my-card-img" alt="project image">
                                 <div class="my-card-body">
-                                    <h5 class="my-card-title">{{ post.title }}</h5>
+                                    <h3 class="my-card-title">{{ post.title }}</h3>
 									<div class="my-card-author">
                                         <i class="fa-solid fa-circle-user fa-2xl"></i>
                                         <span>{{ post.author }}</span>
@@ -143,7 +143,7 @@
 					<div id="{{ category.slug }}" class="accordion-collapse collapse" data-bs-parent="#accordionCategories">
 						<div class="accordion-body">
 							<p>{{ category.description }}</p>
-							<a href="{% url 'browse_project' category.id 'a-z' %}" class="btn btn-outline-primary">Browse projects</a>
+							<a href="{% url 'browse_project' category.id 'a-z' %}" class="btn btn-outline-primary" aria-label="Browse projects">Browse projects</a>
 						</div>
 					</div>
 				</div>
