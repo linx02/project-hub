@@ -392,6 +392,8 @@ ___HTML___: 100+ errors, all due to the use of Jinja templating
 
 __Python__
 
+All files ran through Code Institutes [Python Linter](https://pep8ci.herokuapp.com/#)
+
 ___hub_main/views.py___
 
 | Line | Error                                  |
