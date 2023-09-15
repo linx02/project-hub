@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if (match) {
         githubUsername = match[1];
         repo = match[2];
-      } else {
-        console.log('Invalid GitHub URL');
       }
 
     const path = 'README.md';
