@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.contrib import messages
 from django.urls import reverse
 from django.db.models import Count
+from django.core.paginator import Paginator
 import cloudinary.uploader
 import os
 
@@ -258,39 +259,57 @@ def delete_comment(request, comment_id, post_id):
 
     
 def browse_project(request, pp, sort_by):
+
+    # Get category
+    category = Category.objects.get(id=pp)
+
+    # Handle pagination
+    def paginate(all_posts):
+        p = Paginator(all_posts, 12)
+        page = request.GET.get('page')
+        posts = p.get_page(page)
+        return posts
     
     # Handle sort by a-z
     if sort_by == 'a-z':
-        posts = Post.objects.all().order_by('title')
-        posts = list(posts)
-        posts.reverse()
-        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp).order_by('title'), 'category' : Category.objects.get(id=pp)})
+        all_posts = Post.objects.filter(Category_id=pp).order_by('title')
+
+        posts = paginate(all_posts)
+
+        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
     
     # Handle sort by recently added
     elif sort_by == 'recently-added':
-        posts = Post.objects.filter(Category_id=pp).order_by('-created_on')
-        posts = list(posts)
+        all_posts = Post.objects.filter(Category_id=pp).order_by('-created_on')
+
+        posts = paginate(all_posts)
+
         context = {
             'posts' : posts,
-            'category' : Category.objects.get(id=pp)
+            'category' : category
         }
 
         return render(request, 'browse_project.html', context)
 
     # Handle sort by top rated
     elif sort_by == 'top-rated':
-        posts = Post.objects.filter(Category_id=pp).annotate(like_count=Count('likes'))
-        posts = posts.order_by('-like_count')
+        all_posts = Post.objects.filter(Category_id=pp).annotate(like_count=Count('likes'))
+        all_posts = all_posts.order_by('-like_count')
+
+        posts = paginate(all_posts)
+
         context = {
             'posts' : posts,
-            'category' : Category.objects.get(id=pp)
+            'category' : category
         }
 
-        return render(request, 'browse_project.html', {'posts': posts, 'category' : Category.objects.get(id=pp)})
+        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
     
     # Render page
     else:
-        return render(request, 'browse_project.html', {'posts': Post.objects.filter(Category_id=pp), 'category' : Category.objects.get(id=pp)})
+        all_posts = Post.objects.filter(Category_id=pp)
+        posts = paginate(all_posts)
+        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
 
 
 def like_post(request, post_id):

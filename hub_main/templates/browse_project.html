@@ -50,6 +50,17 @@
             </div>
         </div>
     </div>
+    <div style="text-align: center; margin-top: 10vh;">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo </a>
+            <a href="?page={{ posts.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span style="padding: 0px 10px;">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">Next </a>
+            <a href="?page={{ posts.paginator.num_pages }}">&raquo</a>
+        {% endif %}
+    </div>
 </section>
 
 {% endblock %}
