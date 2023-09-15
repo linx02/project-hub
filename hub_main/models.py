@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 # Category model
 class Category(models.Model):
     name = models.CharField(max_length=200, blank=False)
@@ -10,6 +11,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Post model
 class Post(models.Model):
@@ -29,9 +31,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def number_of_likes(self):
         return self.likes.count()
+
 
 # Comment model
 class Comment(models.Model):
@@ -45,6 +48,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment {self.body} by {self.user}'
+
 
 # Extend djangos User model - not being used
 class UserProfile(models.Model):

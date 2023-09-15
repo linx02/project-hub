@@ -8,6 +8,7 @@ from django.core.paginator import Paginator
 import cloudinary.uploader
 import os
 
+
 def home(request):
 
     # Get posts for hall of fame sections
@@ -22,14 +23,15 @@ def home(request):
 
     # Context to be passed
     context = {
-        'hof_post_1' : hof_posts[0],
-        'hof_post_2' : hof_posts[1],
-        'hof_post_3' : hof_posts[2],
-        'recent_posts' : recent_posts[:4],
-        'categories' : Category.objects.all()
+        'hof_post_1': hof_posts[0],
+        'hof_post_2': hof_posts[1],
+        'hof_post_3': hof_posts[2],
+        'recent_posts': recent_posts[:4],
+        'categories': Category.objects.all()
     }
 
     return render(request, 'index.html', context)
+
 
 def project_details(request, slug):
 
@@ -47,21 +49,22 @@ def project_details(request, slug):
 
     # Context to be passed
     context = {
-        'post' : post,
-        'comments' : comments,
-        'liked' : liked,
-        'author' : post.author,
-        'author_posts' : author_posts[:4]
+        'post': post,
+        'comments': comments,
+        'liked': liked,
+        'author': post.author,
+        'author_posts': author_posts[:4]
     }
 
     return render(request, 'project_details.html', context)
+
 
 def project_submission(request):
 
     # Redirect home if user is not authenticated
     if not request.user.is_authenticated:
         return redirect('home')
-    
+
     # Runs on submission
     if request.method == 'POST':
 
@@ -80,11 +83,11 @@ def project_submission(request):
             image_file = request.FILES.get('image')
             upload_result = cloudinary.uploader.upload(image_file)
             image = upload_result['secure_url']
-        
+
         # Use default image if none was provided
         else:
             image = None
-        
+
         # Create and save post in db
         posts_table = Post(title=request.POST['title'],
                            author=request.user,
@@ -102,6 +105,7 @@ def project_submission(request):
     else:
         # Provide form
         return render(request, 'project_submission.html')
+
 
 def project_update(request, post_id):
 
@@ -124,9 +128,9 @@ def project_update(request, post_id):
         slug = slugify(title)
 
         # Get new data
-        post_to_update.title=title
-        post_to_update.Category_id=request.POST.get('category')
-        post_to_update.description=request.POST.get('description')
+        post_to_update.title = title
+        post_to_update.Category_id = request.POST.get('category')
+        post_to_update.description = request.POST.get('description')
 
         # Handle 'Generate from link' button toggled
         if 'generate_link' in request.POST:
@@ -139,23 +143,23 @@ def project_update(request, post_id):
             image_file = request.FILES.get('image')
             upload_result = cloudinary.uploader.upload(image_file)
             image = upload_result['secure_url']
-        
+
         # Handle none provided
         else:
             image = None
 
         # Create new record and save to db
-        post_to_update.image=image
-        post_to_update.live_link=request.POST.get('live_link')
-        post_to_update.github_repo_link=request.POST.get('github_repo_link')
-        post_to_update.slug=slug
+        post_to_update.image = image
+        post_to_update.live_link = request.POST.get('live_link')
+        post_to_update.github_repo_link = request.POST.get('github_repo_link')
+        post_to_update.slug = slug
 
         post_to_update.save()
 
         # Provide user feedback
         messages.success(request, 'Post has been updated.')
         return redirect('profile_page')
-    
+
     else:
         # Provide data to be pre-filled to inputs when accessing page
         context = {
@@ -169,19 +173,21 @@ def project_update(request, post_id):
 
         return render(request, 'project_update.html', context)
 
+
 def profile_page(request):
 
     # Redirect home if user is not authenticated
     if not request.user.is_authenticated:
         return redirect('home')
-    
+
     # Context to be passed
     context = {
-        'posts' : Post.objects.filter(author=request.user),
-        'post_count' : Post.objects.filter(author=request.user).count(),
+        'posts': Post.objects.filter(author=request.user),
+        'post_count': Post.objects.filter(author=request.user).count(),
     }
-    
+
     return render(request, 'profile_page.html', context)
+
 
 def delete_post(request, post_id):
 
@@ -200,8 +206,9 @@ def delete_post(request, post_id):
     if request.method == 'POST':
         post.delete()
         messages.success(request, 'Post has been deleted')
-    
+
     return redirect('profile_page')
+
 
 def post_comment(request, post_id):
 
@@ -214,7 +221,7 @@ def post_comment(request, post_id):
 
         # Get post to be commented on
         post = get_object_or_404(Post, id=post_id)
-        
+
         # Deny if comment is empty
         if request.POST.get('comment_body').strip() == '':
             messages.success(request, 'Empty comments not allowed')
@@ -234,7 +241,8 @@ def post_comment(request, post_id):
 
         redirect_url = reverse('project_details', kwargs={'slug': post.slug})
         return redirect(redirect_url)
-    
+
+
 def delete_comment(request, comment_id, post_id):
 
     # Redirect home if user is not authenticated
@@ -257,7 +265,7 @@ def delete_comment(request, comment_id, post_id):
         redirect_url = reverse('project_details', kwargs={'slug': post.slug})
         return redirect(redirect_url)
 
-    
+
 def browse_project(request, pp, sort_by):
 
     # Get category
@@ -269,15 +277,15 @@ def browse_project(request, pp, sort_by):
         page = request.GET.get('page')
         posts = p.get_page(page)
         return posts
-    
+
     # Handle sort by a-z
     if sort_by == 'a-z':
         all_posts = Post.objects.filter(Category_id=pp).order_by('title')
 
         posts = paginate(all_posts)
 
-        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
-    
+        return render(request, 'browse_project.html', {'posts': posts, 'category': category})
+
     # Handle sort by recently added
     elif sort_by == 'recently-added':
         all_posts = Post.objects.filter(Category_id=pp).order_by('-created_on')
@@ -285,8 +293,8 @@ def browse_project(request, pp, sort_by):
         posts = paginate(all_posts)
 
         context = {
-            'posts' : posts,
-            'category' : category
+            'posts': posts,
+            'category': category
         }
 
         return render(request, 'browse_project.html', context)
@@ -299,17 +307,17 @@ def browse_project(request, pp, sort_by):
         posts = paginate(all_posts)
 
         context = {
-            'posts' : posts,
-            'category' : category
+            'posts': posts,
+            'category': category
         }
 
-        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
-    
+        return render(request, 'browse_project.html', {'posts': posts, 'category': category})
+
     # Render page
     else:
         all_posts = Post.objects.filter(Category_id=pp)
         posts = paginate(all_posts)
-        return render(request, 'browse_project.html', {'posts': posts, 'category' : category})
+        return render(request, 'browse_project.html', {'posts': posts, 'category': category})
 
 
 def like_post(request, post_id):
@@ -317,7 +325,7 @@ def like_post(request, post_id):
     # Redirect home if user is not authenticated
     if not request.user.is_authenticated:
         return redirect('home')
-    
+
     # Get post to like
     post = get_object_or_404(Post, id=post_id)
 
@@ -331,6 +339,7 @@ def like_post(request, post_id):
     redirect_url = reverse('project_details', kwargs={'slug': post.slug})
     return redirect(redirect_url)
 
+
 def view_profile(request, username):
 
     # Get profile to view
@@ -338,13 +347,14 @@ def view_profile(request, username):
 
     # Context to be passed
     context = {
-        'profile' : profile,
-        'posts' : Post.objects.filter(author=profile),
-        'post_count' : Post.objects.filter(author=profile).count(),
+        'profile': profile,
+        'posts': Post.objects.filter(author=profile),
+        'post_count': Post.objects.filter(author=profile).count(),
     }
 
     # Render page
     return render(request, 'view_profile.html', context)
+
 
 def custom_404_page(request, *args, **kwargs):
 

@@ -2,9 +2,10 @@ from helper_functions import *
 
 base_url = "http://127.0.0.1:8000/"
 urls = {
-    'login' : f'{base_url}members/login_user',
-    'signup' : f'{base_url}members/register_user'
+    'login': f'{base_url}members/login_user',
+    'signup': f'{base_url}members/register_user'
 }
+
 
 def test_access_signup_page_logged_in(selenium_driver):
     # Arrange

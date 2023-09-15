@@ -5,17 +5,18 @@ test_post_id = 42
 test_post_slug = 'testing-post'
 test_post_comment = 9
 urls = {
-    'project_details' : f'{base_url}project/{test_post_slug}/',
-    'submission' : f'{base_url}project_submission/',
-    'profile_page' : f'{base_url}profile_page/',
-    'delete_post' : f'{base_url}delete_post/{test_post_id}/',
-    'update' : f'{base_url}project_update/{test_post_id}/',
-    'comment' : f'{base_url}post_comment/{test_post_id}/',
-    'delete_comment' : f'{base_url}delete_comment/{test_post_comment}/{test_post_id}/',
-    'browse_project' : '{base_url}browse_project/<int:pp>/<str:sort_by>/',
-    'like' : f'{base_url}like_post/{test_post_id}/',
-    'profile' : f'{base_url}profile/linx/',
+    'project_details': f'{base_url}project/{test_post_slug}/',
+    'submission': f'{base_url}project_submission/',
+    'profile_page': f'{base_url}profile_page/',
+    'delete_post': f'{base_url}delete_post/{test_post_id}/',
+    'update': f'{base_url}project_update/{test_post_id}/',
+    'comment': f'{base_url}post_comment/{test_post_id}/',
+    'delete_comment': f'{base_url}delete_comment/{test_post_comment}/{test_post_id}/',
+    'browse_project': '{base_url}browse_project/<int:pp>/<str:sort_by>/',
+    'like': f'{base_url}like_post/{test_post_id}/',
+    'profile': f'{base_url}profile/linx/',
 }
+
 
 def test_noauth_like(selenium_driver):
     # Act
@@ -39,6 +40,7 @@ def test_noauth_delete_comment(selenium_driver):
 
     # Assert
     assert redirect_home_confirm(selenium_driver)
+
 
 def test_noauth_project_submission(selenium_driver):
     # Act

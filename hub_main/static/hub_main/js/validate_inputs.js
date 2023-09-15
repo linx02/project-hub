@@ -22,6 +22,7 @@ function checkFileSize(fileInput) {
     }
 
     else {
+      	const generateFromLinkBtn = document.getElementById('generate-link');
         generateFromLinkBtn.disabled = false;
     }
 }
@@ -30,22 +31,22 @@ document.addEventListener('DOMContentLoaded', function(){
     let fileInput = document.getElementById('image');
 
     fileInput.addEventListener('change', function(){
-        checkFileSize(fileInput)
-    })
+        checkFileSize(fileInput);
+    });
 
     const regexPattern = /https:\/\/github\.com\/([^/]+)\/([^/]+)$/;
     const githubRepoLink = document.getElementById('github_repo_link');
 
     githubRepoLink.addEventListener('change', function(){
         const match = githubRepoLink.value.match(regexPattern);
-        const errorTextGithub = document.getElementById('error-text-github')
+        const errorTextGithub = document.getElementById('error-text-github');
         if(!match){
             errorTextGithub.style.display = 'block';
         }
         else {
             errorTextGithub.style.display = 'none';
         }
-    })
+    });
 
     let liveLinkInput = document.getElementById('live-link');
     const generateFromLinkBtn = document.getElementById('generate-link');
@@ -57,5 +58,5 @@ document.addEventListener('DOMContentLoaded', function(){
         } else {
             generateFromLinkBtn.disabled = true;
         }
-    })
-})
+    });
+});

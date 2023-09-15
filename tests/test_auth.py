@@ -5,12 +5,13 @@ import os
 base_url = "http://127.0.0.1:8000/"
 
 urls = {
-    'signup' : f'{base_url}members/register_user',
-    'login' : f'{base_url}members/login_user',
-    'logout' : f'{base_url}members/logout_user',
-    'submission' : f'{base_url}project_submission/',
-    'profile_page' : f'{base_url}profile_page/',
+    'signup': f'{base_url}members/register_user',
+    'login': f'{base_url}members/login_user',
+    'logout': f'{base_url}members/logout_user',
+    'submission': f'{base_url}project_submission/',
+    'profile_page': f'{base_url}profile_page/',
 }
+
 
 @pytest.mark.skip
 def test_create_new_user(selenium_driver):
@@ -31,6 +32,7 @@ def test_create_new_user(selenium_driver):
     # Assert
     assert redirect_home_confirm(selenium_driver)
 
+
 def test_login_user(selenium_driver):
     # Arrange
     logout(selenium_driver)
@@ -40,6 +42,7 @@ def test_login_user(selenium_driver):
 
     # Assert
     assert redirect_home_confirm(selenium_driver)
+
 
 def test_access_when_logged_in(selenium_driver):
     # Arrange

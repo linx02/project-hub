@@ -6,6 +6,7 @@ project_url = 'http://127.0.0.1:8000/project/testing-post/'
 like_btn = None
 random_comment = f'Testing comment: {random.randrange(10000)}'
 
+
 def test_like(selenium_driver):
     # Arrange
     login(selenium_driver)
@@ -22,6 +23,7 @@ def test_like(selenium_driver):
     number_of_likes_int_new = int(number_of_likes_new.get_attribute('innerHTML'))
 
     assert number_of_likes_int < number_of_likes_int_new
+
 
 def test_unlike(selenium_driver):
     # Arrange
